@@ -604,8 +604,8 @@ section:nth-child(even) {
 }
 
 .skill-tag--highlight:hover {
-  background: rgba(233, 195, 73, 0.12);
-  border-color: rgba(233, 195, 73, 0.5);
+  background: rgba(0, 200, 160, 0.12);
+  border-color: rgba(0, 200, 160, 0.5);
   box-shadow: 0 0 15px var(--accent-glow);
 }
 
@@ -720,32 +720,28 @@ section:nth-child(even) {
 @media (max-width: 768px) {
   section {
     padding: 3.5rem 0;
-    scroll-margin-top: 90px;
+    scroll-margin-top: 70px;
   }
 
-  /* Nav */
+  /* Nav — logo only on mobile */
   .nav {
-    top: 0.5rem;
-    height: auto;
+    top: 0.75rem;
+    height: 44px;
   }
 
   .nav-inner {
-    flex-direction: column;
-    gap: 0.5rem;
-    padding: 0.75rem 1.25rem;
-    height: auto;
+    justify-content: center;
+    padding: 0 1.25rem;
   }
 
   .nav-links {
-    gap: 1.25rem;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: none;
   }
 
   /* Hero */
   .hero {
     min-height: auto;
-    padding: 6rem 0 3.5rem;
+    padding: 5rem 0 3.5rem;
   }
 
   /* Metrics */
