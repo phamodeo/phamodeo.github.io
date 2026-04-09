@@ -16,18 +16,30 @@
 </head>
 <body>
 
-  <!-- NAV -->
-  <header class="nav">
-    <nav class="nav-inner">
-      <ul class="nav-links">
-        <li><a href="#about">about</a></li>
-        <li><a href="#experience">experience</a></li>
-        <li><a href="#skills">skills</a></li>
-        <li><a href="#education">education</a></li>
-        <li><a href="#contact">contact</a></li>
-      </ul>
-    </nav>
-  </header>
+  <!-- NAV TOGGLE (checkbox hack — must be first sibling) -->
+  <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+
+  <!-- Overlay — clicar fecha o drawer -->
+  <label for="nav-toggle" class="nav-overlay"></label>
+
+  <!-- Side drawer -->
+  <div class="nav-drawer">
+    <label for="nav-toggle" class="nav-drawer-close">✕</label>
+    <ul class="nav-drawer-links">
+      <li><a href="#about">about</a></li>
+      <li><a href="#experience">experience</a></li>
+      <li><a href="#skills">skills</a></li>
+      <li><a href="#education">education</a></li>
+      <li><a href="#contact">contact</a></li>
+    </ul>
+  </div>
+
+  <!-- Hamburger button -->
+  <label for="nav-toggle" class="nav-hamburger" aria-label="Open menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </label>
 
   <main>
 
