@@ -311,22 +311,47 @@ section:nth-child(even) {
   flex-wrap: wrap;
 }
 
-.lang-chip {
-  font-family: var(--mono);
-  font-size: 0.72rem;
-  background: var(--bg-tertiary);
-  border: 1px solid var(--border);
-  border-radius: 3px;
-  padding: 0.3rem 0.75rem;
-  color: var(--text-secondary);
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+.lang-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-top: 0.5rem;
 }
 
-.lang-code {
-  color: var(--accent);
+.lang-card {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border);
+  border-top: 2px solid var(--border);
+  border-radius: 6px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  transition: border-top-color 0.2s ease;
+}
+
+.lang-card:hover {
+  border-top-color: var(--accent);
+}
+
+.lang-card-code {
+  font-family: var(--mono);
+  font-size: 1.1rem;
   font-weight: 500;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.lang-card-name {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.lang-card-level {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  color: var(--text-secondary);
 }
 
 /* === 8. EXPERIENCE (timeline) === */
@@ -488,6 +513,21 @@ section:nth-child(even) {
   color: var(--accent);
 }
 
+.skills-highlight {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 2rem;
+}
+
+.skill-tag--highlight {
+  font-size: 0.78rem;
+  padding: 0.4rem 0.85rem;
+  background: var(--accent-dim);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
 /* === 10. EDUCATION === */
 .edu-list {
   display: flex;
@@ -634,6 +674,11 @@ section:nth-child(even) {
 
   /* Metrics */
   .metrics-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  /* Languages */
+  .lang-grid {
     grid-template-columns: 1fr 1fr;
   }
 
