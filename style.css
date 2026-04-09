@@ -36,13 +36,13 @@ a {
   --bg-high:        #1c202a;
   --border:         rgba(177, 199, 242, 0.1);
   --border-solid:   #2a2f3a;
-  --accent:         #e9c349;
-  --accent-dim:     rgba(233, 195, 73, 0.08);
-  --accent-glow:    rgba(233, 195, 73, 0.15);
+  --accent:         #00c8a0;
+  --accent-dim:     rgba(0, 200, 160, 0.08);
+  --accent-glow:    rgba(0, 200, 160, 0.15);
   --secondary:      #b1c7f2;
-  --text-primary:   #e2e2e8;
-  --text-secondary: #8c9199;
-  --text-muted:     #44474e;
+  --text-primary:   #e8edf2;
+  --text-secondary: #a8b3be;
+  --text-muted:     #55606e;
   --mono: 'JetBrains Mono', 'Fira Code', monospace;
   --sans: 'Inter', system-ui, sans-serif;
   --headline: 'Manrope', 'Inter', sans-serif;
@@ -281,8 +281,8 @@ section:nth-child(even) {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--accent) 0%, #c4a138 100%);
-  color: #111318;
+  background: linear-gradient(135deg, var(--accent) 0%, #00a882 100%);
+  color: #0d1017;
   box-shadow: 0 4px 20px var(--accent-glow);
 }
 
@@ -800,6 +800,6 @@ section:nth-child(even) {
     --bg-tertiary:    #f5f5f5;
     --border:         #ddd;
     --border-solid:   #ddd;
-    --accent:         #8a6a00;
+    --accent:         #007a62;
   }
 }
