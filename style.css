@@ -334,7 +334,7 @@ section:not(.hero) {
 /* === 7. ABOUT === */
 .metrics-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
   margin-bottom: 3rem;
 }
@@ -531,6 +531,15 @@ section:not(.hero) {
   font-size: 0.8rem;
   color: var(--text-secondary);
   white-space: nowrap;
+}
+
+.job-subtitle {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--accent);
+  font-style: italic;
+  margin-bottom: 0.65rem;
+  opacity: 0.8;
 }
 
 .job-desc {
