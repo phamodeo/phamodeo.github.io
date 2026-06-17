@@ -45,16 +45,16 @@ a {
   --text-primary:   #F7F5F8;
   --text-secondary: #969EAA;
   --text-muted:     #4E5560;
-  --mono: 'JetBrains Mono', 'Fira Code', monospace;
-  --sans: 'Inter', system-ui, sans-serif;
-  --headline: 'Manrope', 'Inter', sans-serif;
+  --mono: 'Geist Mono', 'JetBrains Mono', monospace;
+  --sans: 'DM Sans', system-ui, sans-serif;
+  --headline: 'DM Serif Display', Georgia, serif;
 }
 
 /* === 3. TYPOGRAPHY === */
 h1, h2, h3 {
   font-family: var(--headline);
   line-height: 1.15;
-  font-weight: 700;
+  font-weight: 400;
 }
 
 /* === 4. LAYOUT UTILITIES === */
@@ -87,11 +87,10 @@ section:not(.hero) {
 .section-heading {
   font-family: var(--headline);
   font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 800;
+  font-weight: 400;
   color: var(--text-primary);
   margin-bottom: 2.5rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  letter-spacing: -0.01em;
 }
 
 .section-index {
@@ -130,7 +129,7 @@ section:not(.hero) {
   padding: 0.6rem 0.65rem;
   background: rgba(40, 44, 52, 0.95);
   border: 1px solid rgba(255, 255, 255, 0.07);
-  border-radius: 0;
+  border-radius: 8px;
   transition: border-color 0.2s ease;
 }
 
@@ -168,6 +167,7 @@ section:not(.hero) {
   width: 260px;
   background: #1E2229;
   border-left: 2px solid var(--accent);
+  border-radius: 20px 0 0 20px;
   z-index: 200;
   transform: translateX(100%);
   transition: transform 0.32s cubic-bezier(0.4, 0, 0.2, 1);
@@ -249,9 +249,9 @@ section:not(.hero) {
 .hero-name {
   font-family: var(--headline);
   font-size: clamp(3.5rem, 9vw, 7rem);
-  font-weight: 800;
+  font-weight: 400;
   color: var(--text-primary);
-  letter-spacing: -0.03em;
+  letter-spacing: -0.02em;
   margin-bottom: 1rem;
   line-height: 1.05;
   animation: fade-up 0.6s ease both;
@@ -266,8 +266,9 @@ section:not(.hero) {
 
 .hero-tagline {
   font-family: var(--headline);
+  font-style: italic;
   font-size: clamp(1.4rem, 3vw, 2.2rem);
-  font-weight: 800;
+  font-weight: 400;
   color: var(--accent);
   -webkit-text-fill-color: unset;
   margin-bottom: 1.5rem;
@@ -298,11 +299,11 @@ section:not(.hero) {
 /* === BUTTONS === */
 .btn {
   display: inline-block;
-  font-family: var(--headline);
+  font-family: var(--sans);
   font-size: 0.85rem;
-  font-weight: 700;
+  font-weight: 600;
   padding: 0.75rem 1.6rem;
-  border-radius: 0;
+  border-radius: 8px;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
   cursor: pointer;
   letter-spacing: 0.01em;
@@ -315,8 +316,8 @@ section:not(.hero) {
 }
 
 .btn-primary:hover {
-  transform: translate(-3px, -3px);
-  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.6);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(228, 137, 160, 0.4);
 }
 
 .btn-secondary {
@@ -329,8 +330,8 @@ section:not(.hero) {
   background: transparent;
   border-color: var(--accent);
   color: var(--accent);
-  transform: translate(-3px, -3px);
-  box-shadow: 3px 3px 0 var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(228, 137, 160, 0.2);
 }
 
 /* === 7. ABOUT === */
@@ -345,7 +346,7 @@ section:not(.hero) {
   background: #1E2229;
   border: 1px solid rgba(150, 158, 170, 0.2);
   border-top: 2px solid var(--accent);
-  border-radius: 0;
+  border-radius: 12px;
   padding: 1.5rem 1.25rem;
   display: flex;
   flex-direction: column;
@@ -354,8 +355,8 @@ section:not(.hero) {
 }
 
 .metric-card:hover {
-  transform: translate(-4px, -4px);
-  box-shadow: 4px 4px 0 var(--accent);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(228, 137, 160, 0.18), 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .metric-number {
@@ -407,7 +408,7 @@ section:not(.hero) {
   background: #1E2229;
   border: 1px solid rgba(150, 158, 170, 0.2);
   border-top: 2px solid var(--accent);
-  border-radius: 0;
+  border-radius: 12px;
   padding: 1.1rem 1rem;
   display: flex;
   flex-direction: column;
@@ -416,8 +417,8 @@ section:not(.hero) {
 }
 
 .lang-card:hover {
-  transform: translate(-4px, -4px);
-  box-shadow: 4px 4px 0 var(--accent);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(228, 137, 160, 0.18), 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .lang-card-code {
@@ -464,7 +465,7 @@ section:not(.hero) {
   top: 8px;
   width: 10px;
   height: 10px;
-  border-radius: 0;
+  border-radius: 50%;
   background: var(--accent);
   box-shadow: 0 0 0 3px var(--bg-primary);
 }
@@ -566,12 +567,12 @@ section:not(.hero) {
 }
 
 .job-bullets li::before {
-  content: '▸';
+  content: '·';
   position: absolute;
   left: 0;
   color: var(--accent);
-  font-size: 0.7rem;
-  top: 0.22em;
+  font-size: 1.2rem;
+  top: -0.05em;
 }
 
 /* === 9. SKILLS === */
@@ -592,14 +593,14 @@ section:not(.hero) {
   background: #1E2229;
   border: 1px solid rgba(150, 158, 170, 0.2);
   border-top: 2px solid var(--accent);
-  border-radius: 0;
+  border-radius: 12px;
   padding: 1.25rem;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .skill-category:hover {
-  transform: translate(-4px, -4px);
-  box-shadow: 4px 4px 0 var(--accent);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(228, 137, 160, 0.18), 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .skill-category-label {
@@ -624,7 +625,7 @@ section:not(.hero) {
   font-size: 0.75rem;
   background: transparent;
   border: 1px solid rgba(150, 158, 170, 0.2);
-  border-radius: 0;
+  border-radius: 6px;
   padding: 0.25rem 0.6rem;
   color: var(--text-secondary);
   transition: all 0.15s ease;
@@ -643,7 +644,7 @@ section:not(.hero) {
   padding: 0.45rem 1rem;
   background: transparent;
   border: 1px solid var(--accent);
-  border-radius: 0;
+  border-radius: 6px;
   color: var(--accent);
   letter-spacing: 0.01em;
   transition: all 0.15s ease;
@@ -652,7 +653,7 @@ section:not(.hero) {
 .skill-tag--highlight:hover {
   background: var(--accent);
   color: #1E2229;
-  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0 6px 20px rgba(228, 137, 160, 0.3);
 }
 
 /* === 10. EDUCATION === */
@@ -667,14 +668,14 @@ section:not(.hero) {
   background: #1E2229;
   border: 1px solid rgba(150, 158, 170, 0.2);
   border-left: 2px solid var(--accent);
-  border-radius: 0;
+  border-radius: 12px;
   padding: 1.1rem 1.4rem;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .edu-card:hover {
-  transform: translate(-4px, -4px);
-  box-shadow: 4px 4px 0 var(--accent);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(228, 137, 160, 0.18), 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .edu-degree {
