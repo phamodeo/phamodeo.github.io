@@ -30,19 +30,21 @@ a {
 
 /* === 2. CSS CUSTOM PROPERTIES === */
 :root {
-  --bg-primary:     #0d1017;
-  --bg-secondary:   #111318;
-  --bg-tertiary:    #161920;
-  --bg-high:        #1c202a;
-  --border:         rgba(255, 255, 255, 0.08);
-  --border-solid:   rgba(255, 255, 255, 0.12);
-  --accent:         #AAFF00;
-  --accent-dim:     rgba(170, 255, 0, 0.08);
-  --accent-glow:    rgba(170, 255, 0, 0.15);
+  --bg-primary:     #282C34;
+  --bg-secondary:   #1E2229;
+  --bg-tertiary:    #1E2229;
+  --bg-high:        #3A404A;
+  --border:         rgba(150, 158, 170, 0.2);
+  --border-solid:   rgba(150, 158, 170, 0.3);
+  --accent:         #E489A0;
+  --accent-light:   #F3AABC;
+  --accent-deep:    #D6748E;
+  --accent-dim:     rgba(228, 137, 160, 0.08);
+  --accent-glow:    rgba(96, 70, 90, 0.4);
   --secondary:      #b1c7f2;
-  --text-primary:   #f2f2f2;
-  --text-secondary: #b8c4ce;
-  --text-muted:     #55606e;
+  --text-primary:   #F7F5F8;
+  --text-secondary: #969EAA;
+  --text-muted:     #4E5560;
   --mono: 'JetBrains Mono', 'Fira Code', monospace;
   --sans: 'Inter', system-ui, sans-serif;
   --headline: 'Manrope', 'Inter', sans-serif;
@@ -68,7 +70,7 @@ section {
 }
 
 section:not(.hero) {
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-top: 1px solid rgba(150, 158, 170, 0.1);
 }
 
 .section-label {
@@ -126,7 +128,7 @@ section:not(.hero) {
   justify-content: center;
   gap: 5px;
   padding: 0.6rem 0.65rem;
-  background: rgba(13, 16, 23, 0.95);
+  background: rgba(40, 44, 52, 0.95);
   border: 1px solid rgba(255, 255, 255, 0.07);
   border-radius: 0;
   transition: border-color 0.2s ease;
@@ -164,7 +166,7 @@ section:not(.hero) {
   right: 0;
   height: 100vh;
   width: 260px;
-  background: #0d1017;
+  background: #1E2229;
   border-left: 2px solid var(--accent);
   z-index: 200;
   transform: translateX(100%);
@@ -308,7 +310,7 @@ section:not(.hero) {
 
 .btn-primary {
   background: var(--accent);
-  color: #0d1017;
+  color: #1E2229;
   box-shadow: none;
 }
 
@@ -320,7 +322,7 @@ section:not(.hero) {
 .btn-secondary {
   background: transparent;
   color: var(--text-primary);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(150, 158, 170, 0.2);
 }
 
 .btn-secondary:hover {
@@ -340,8 +342,8 @@ section:not(.hero) {
 }
 
 .metric-card {
-  background: #0d1017;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #1E2229;
+  border: 1px solid rgba(150, 158, 170, 0.2);
   border-top: 2px solid var(--accent);
   border-radius: 0;
   padding: 1.5rem 1.25rem;
@@ -402,8 +404,8 @@ section:not(.hero) {
 }
 
 .lang-card {
-  background: #0d1017;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #1E2229;
+  border: 1px solid rgba(150, 158, 170, 0.2);
   border-top: 2px solid var(--accent);
   border-radius: 0;
   padding: 1.1rem 1rem;
@@ -502,7 +504,7 @@ section:not(.hero) {
 .job-entry {
   margin-bottom: 2rem;
   padding-bottom: 2rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(150, 158, 170, 0.1);
 }
 
 .job-entry:last-child {
@@ -587,8 +589,8 @@ section:not(.hero) {
 }
 
 .skill-category {
-  background: #0d1017;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #1E2229;
+  border: 1px solid rgba(150, 158, 170, 0.2);
   border-top: 2px solid var(--accent);
   border-radius: 0;
   padding: 1.25rem;
@@ -621,7 +623,7 @@ section:not(.hero) {
   font-family: var(--mono);
   font-size: 0.75rem;
   background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(150, 158, 170, 0.2);
   border-radius: 0;
   padding: 0.25rem 0.6rem;
   color: var(--text-secondary);
@@ -649,7 +651,7 @@ section:not(.hero) {
 
 .skill-tag--highlight:hover {
   background: var(--accent);
-  color: #0d1017;
+  color: #1E2229;
   box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.5);
 }
 
@@ -662,8 +664,8 @@ section:not(.hero) {
 }
 
 .edu-card {
-  background: #0d1017;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #1E2229;
+  border: 1px solid rgba(150, 158, 170, 0.2);
   border-left: 2px solid var(--accent);
   border-radius: 0;
   padding: 1.1rem 1.4rem;
@@ -750,7 +752,7 @@ section:not(.hero) {
 
 /* === 12. FOOTER === */
 .footer {
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-top: 1px solid rgba(150, 158, 170, 0.1);
   padding: 1.75rem 0;
   text-align: center;
   font-family: var(--mono);
@@ -902,6 +904,6 @@ section:not(.hero) {
     --bg-tertiary:    #f5f5f5;
     --border:         #ddd;
     --border-solid:   #ddd;
-    --accent:         #3d7300;
+    --accent:         #8a3050;
   }
 }
