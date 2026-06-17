@@ -93,6 +93,7 @@ section:not(.hero) {
   color: var(--text-primary);
   margin-bottom: 2.5rem;
   letter-spacing: -0.02em;
+  position: relative;
 }
 
 .section-index {
@@ -101,6 +102,22 @@ section:not(.hero) {
   color: var(--accent);
   margin-right: 0.5rem;
   font-weight: 400;
+}
+
+/* Desktop: hang the index in the left gutter so the title word
+   aligns with the body text spine */
+@media (min-width: 769px) {
+  .section-index {
+    position: absolute;
+    right: 100%;
+    margin-right: 0.65rem;
+    bottom: 0.18em;
+  }
+
+  /* Contact heading is centered, so keep its index inline */
+  .contact-inner .section-index {
+    position: static;
+  }
 }
 
 .subsection-label {
