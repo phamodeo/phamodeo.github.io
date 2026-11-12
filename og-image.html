@@ -4,15 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=1200">
   <title>OG Image, Pedro Amodeo</title>
+  <!--
+    Source for og-image.png (1200x630). Render with headless Chrome against the
+    local server so fonts and the photo load:
+    chrome --headless=new --window-size=1200,630 --screenshot=og-image.png http://localhost:3000/og-image.html
+
+    Purpose: the card sits next to Pedro's avatar, name and headline on LinkedIn,
+    so it does not repeat them. It promises what the site has that the profile
+    doesn't: the cases. LinkedIn shows it at ~550px (web) and ~350px (app),
+    so every text line is 36px or larger here and colors are high contrast.
+  -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Geist+Mono:wght@400&family=Sora:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,500&family=Sora:wght@600;700&display=swap" rel="stylesheet">
   <style>
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     html, body {
       width: 1200px;
@@ -23,85 +29,81 @@
     }
 
     body {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: 1fr 460px;
     }
 
-    .corner-tl {
-      position: absolute;
-      top: 40px;
-      left: 52px;
-      font-family: 'Geist Mono', monospace;
-      font-size: 16px;
-      color: #4E5560;
-      letter-spacing: 0.05em;
-    }
-
-    .corner-br {
-      position: absolute;
-      bottom: 40px;
-      right: 52px;
-      font-family: 'Geist Mono', monospace;
-      font-size: 16px;
-      color: #4E5560;
-      letter-spacing: 0.04em;
-    }
-
-    .center {
+    .text {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      text-align: center;
+      justify-content: center;
+      padding: 0 48px 0 76px;
     }
 
-    .name {
+    .headline {
       font-family: 'Sora', sans-serif;
-      font-size: 78px;
+      font-size: 60px;
       font-weight: 700;
       color: #F7F5F8;
       letter-spacing: -0.03em;
       line-height: 1.05;
-      margin-bottom: 20px;
-    }
-
-    .title {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 28px;
-      font-weight: 400;
-      color: #969EAA;
-      letter-spacing: 0.01em;
     }
 
     .divider {
-      width: 200px;
-      height: 2px;
+      width: 96px;
+      height: 6px;
+      border-radius: 3px;
       background: #E489A0;
-      margin: 32px 0;
+      margin: 40px 0 34px;
     }
 
-    .tagline {
-      font-family: 'Sora', sans-serif;
-      font-size: 26px;
-      font-weight: 600;
+    .topics {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .topics li {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 40px;
+      font-weight: 500;
       color: #F7F5F8;
       letter-spacing: -0.01em;
+      line-height: 1.15;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .topics li::before {
+      content: '';
+      flex: none;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #E489A0;
+    }
+
+    .photo {
+      width: 460px;
+      height: 630px;
+      object-fit: cover;
+      object-position: 48% 50%;
+      display: block;
     }
   </style>
 </head>
 <body>
-
-  <span class="corner-tl">// phamodeo.com.br</span>
-
-  <div class="center">
-    <h1 class="name">Pedro Amodeo</h1>
-    <p class="title">Customer Success Manager @ VTEX</p>
+  <div class="text">
+    <h1 class="headline">Three cases from enterprise commerce</h1>
     <div class="divider"></div>
-    <p class="tagline">Translating Tech into Growth</p>
+    <ul class="topics">
+      <li>An AI agent for root causes</li>
+      <li>Tickets mapped for Product</li>
+      <li>A global retailer's launch</li>
+    </ul>
   </div>
-
-  <span class="corner-br">Enterprise eCommerce &amp; SaaS &nbsp;·&nbsp; São Paulo</span>
-
+  <img class="photo" src="img/claude-meetup-rio.webp" alt="">
 </body>
 </html>
