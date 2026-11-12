@@ -962,6 +962,24 @@ section + section { border-top: 1px solid rgba(150, 158, 170, 0.1); }
   .cs-code pre { white-space: pre-wrap; overflow-wrap: anywhere; }
 }
 
+/* Ticket funnel: narrowing bars, no figures */
+.cs-funnel { display: flex; flex-direction: column; gap: 0.6rem; }
+.cs-funnel li {
+  width: var(--w);
+  min-width: 220px;
+  max-width: 100%;
+  padding: 0.75rem 1rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 8px;
+}
+.cs-funnel li:last-child { border-color: var(--accent); }
+.cs-funnel-label { font-size: var(--fs-sm); color: var(--text-primary); }
+@media (max-width: 480px) {
+  .cs-funnel li { min-width: 0; width: calc(60% + var(--w) * 0.4); }
+}
+
 /* Draft-only gap markers; must not exist when publishing */
 .todo {
   padding: 0.6rem 0.9rem;
