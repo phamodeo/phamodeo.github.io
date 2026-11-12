@@ -5,12 +5,14 @@
   <meta name="viewport" content="width=1200">
   <title>OG Image, Pedro Amodeo</title>
   <!--
-    Source for og-image.png (1200x630). Rendered with headless Chrome:
-    chrome --headless=new --window-size=1200,630 --screenshot=og-image.png og-image.html
+    Source for og-image.png (1200x630). Render with headless Chrome against the
+    local server so fonts and the photo load:
+    chrome --headless=new --window-size=1200,630 --screenshot=og-image.png http://localhost:3000/og-image.html
 
-    Sized for small previews: LinkedIn shows this at ~550px wide on the web
-    and ~350px in the app (about 0.3x), so every text line is 36px or larger
-    and only high-contrast colors are used.
+    Purpose: the card sits next to Pedro's avatar, name and headline on LinkedIn,
+    so it does not repeat them. It promises what the site has that the profile
+    doesn't: the cases. LinkedIn shows it at ~550px (web) and ~350px (app),
+    so every text line is 36px or larger here and colors are high contrast.
   -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,33 +30,23 @@
 
     body {
       display: grid;
-      grid-template-columns: 1fr 500px;
+      grid-template-columns: 1fr 460px;
     }
 
     .text {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 0 56px 0 76px;
+      padding: 0 48px 0 76px;
     }
 
-    .name {
+    .headline {
       font-family: 'Sora', sans-serif;
-      font-size: 84px;
+      font-size: 60px;
       font-weight: 700;
       color: #F7F5F8;
-      letter-spacing: -0.035em;
-      line-height: 1;
-    }
-
-    .role {
-      margin-top: 26px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 40px;
-      font-weight: 500;
-      color: #F7F5F8;
-      letter-spacing: -0.01em;
-      line-height: 1.2;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
     }
 
     .divider {
@@ -65,31 +57,53 @@
       margin: 40px 0 34px;
     }
 
-    .tagline {
-      font-family: 'Sora', sans-serif;
-      font-size: 42px;
-      font-weight: 600;
-      color: #E489A0;
-      letter-spacing: -0.02em;
+    .topics {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .topics li {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 40px;
+      font-weight: 500;
+      color: #F7F5F8;
+      letter-spacing: -0.01em;
       line-height: 1.15;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .topics li::before {
+      content: '';
+      flex: none;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #E489A0;
     }
 
     .photo {
-      width: 500px;
+      width: 460px;
       height: 630px;
       object-fit: cover;
-      object-position: 50% 35%;
+      object-position: 48% 50%;
       display: block;
     }
   </style>
 </head>
 <body>
   <div class="text">
-    <h1 class="name">Pedro Amodeo</h1>
-    <p class="role">Customer Success Manager<br>at VTEX</p>
+    <h1 class="headline">Three cases from enterprise commerce</h1>
     <div class="divider"></div>
-    <p class="tagline">Translating Tech<br>into Growth</p>
+    <ul class="topics">
+      <li>An AI agent for root causes</li>
+      <li>Tickets mapped for Product</li>
+      <li>A global retailer's launch</li>
+    </ul>
   </div>
-  <img class="photo" src="img/pedro-amodeo.webp" alt="">
+  <img class="photo" src="img/claude-meetup-rio.webp" alt="">
 </body>
 </html>
