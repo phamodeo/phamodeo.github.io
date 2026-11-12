@@ -415,58 +415,48 @@ section + section { border-top: 1px solid rgba(150, 158, 170, 0.1); }
 }
 
 /* === 8. EXPERIENCE === */
-.timeline { display: flex; flex-direction: column; gap: var(--space-5); }
+/* Two columns on desktop: employer on the left, roles on the right.
+   The right column keeps a comfortable line length while the section
+   still uses the full container width. */
+.timeline { display: flex; flex-direction: column; }
 
 .employer {
-  position: relative;
-  padding-left: var(--space-4);
-  border-left: 1px solid var(--border-strong);
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: var(--space-4);
+  padding: var(--space-4) 0;
+  border-top: 1px solid var(--border);
 }
-
-.employer::before {
-  content: '';
-  position: absolute;
-  left: -5px;
-  top: 0.45rem;
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: var(--accent);
-  box-shadow: 0 0 0 4px var(--bg-primary);
-}
+.employer:first-child { border-top: none; padding-top: 0; }
+.employer:last-child { padding-bottom: 0; }
 
 .employer-head {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  column-gap: var(--space-2);
-  row-gap: 0.15rem;
-  margin-bottom: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  align-self: start;
 }
 
 .employer-name { font-size: 1.35rem; }
 
 .employer-meta {
-  grid-column: 1;
   font-size: var(--fs-sm);
   color: var(--text-secondary);
+  line-height: 1.5;
 }
 
 .employer-period {
-  grid-column: 2;
-  grid-row: 1;
-  align-self: center;
+  margin-top: 0.35rem;
   font-family: var(--mono);
   font-size: var(--fs-xs);
   color: var(--accent);
-  white-space: nowrap;
 }
 
 .employer-note {
   font-size: var(--fs-sm);
   color: var(--text-secondary);
   font-style: italic;
-  margin: calc(var(--space-2) * -0.5) 0 var(--space-3);
-  max-width: var(--measure);
+  margin-bottom: var(--space-3);
 }
 
 .role { padding-bottom: var(--space-3); }
@@ -499,11 +489,10 @@ section + section { border-top: 1px solid rgba(150, 158, 170, 0.1); }
 .role-desc {
   color: var(--text-secondary);
   font-size: 0.975rem;
-  max-width: var(--measure);
   margin-bottom: 0.85rem;
 }
 
-.bullets { display: flex; flex-direction: column; gap: 0.55rem; max-width: var(--measure); }
+.bullets { display: flex; flex-direction: column; gap: 0.55rem; }
 
 .bullets li {
   position: relative;
@@ -547,27 +536,19 @@ section + section { border-top: 1px solid rgba(150, 158, 170, 0.1); }
 }
 
 /* === 10. EDUCATION === */
-.edu-list { margin-bottom: var(--space-4); }
-
-.plain-list { display: flex; flex-direction: column; gap: var(--space-2); }
-.plain-list li { display: flex; flex-direction: column; gap: 0.1rem; }
-
-.item-title { font-weight: 600; color: var(--text-primary); }
-.item-meta { font-size: var(--fs-sm); color: var(--text-secondary); }
-
-.lang-row {
-  padding-top: var(--space-3);
-  border-top: 1px solid var(--border);
+.edu-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-2);
 }
 
-.lang-row ul {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem 2rem;
-  color: var(--text-secondary);
-  font-size: 0.95rem;
-}
-.lang-row strong { color: var(--text-primary); font-weight: 600; margin-right: 0.35rem; }
+.edu-grid .subhead { margin-bottom: 0.75rem; }
+
+.item-title { font-weight: 600; color: var(--text-primary); line-height: 1.4; }
+.item-meta { margin-top: 0.3rem; font-size: var(--fs-sm); color: var(--text-secondary); }
+
+.lang-list { display: flex; flex-direction: column; gap: 0.3rem; font-size: 0.95rem; color: var(--text-secondary); }
+.lang-list strong { color: var(--text-primary); font-weight: 600; margin-right: 0.35rem; }
 
 /* === 11. CONTACT === */
 .contact { text-align: center; }
@@ -642,11 +623,9 @@ section + section { border-top: 1px solid rgba(150, 158, 170, 0.1); }
   .glance li { padding: var(--space-3) 0; }
   .glance li + li { padding-left: 0; border-left: none; border-top: 1px solid var(--border); }
 
-  .cases, .skills-grid { grid-template-columns: 1fr; }
+  .cases, .skills-grid, .edu-grid { grid-template-columns: 1fr; }
 
-  .employer { padding-left: var(--space-3); }
-  .employer-head { grid-template-columns: 1fr; }
-  .employer-period { grid-column: 1; grid-row: auto; }
+  .employer { grid-template-columns: 1fr; gap: var(--space-2); }
 
   .role-head { flex-direction: column; gap: 0.15rem; }
 }
