@@ -319,16 +319,26 @@ section + section { border-top: 1px solid rgba(150, 158, 170, 0.1); }
 
 .glance-value {
   font-family: var(--headline);
-  font-size: 1.6rem;
+  font-size: 1.15rem;
   font-weight: 700;
   color: var(--text-primary);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
 }
 
 .glance-label {
   font-size: var(--fs-sm);
   color: var(--text-secondary);
-  line-height: 1.5;
+  line-height: 1.55;
+}
+
+.glance-example {
+  margin-top: 0.4rem;
+  padding-left: 0.75rem;
+  border-left: 2px solid var(--accent);
+  font-size: var(--fs-sm);
+  color: var(--text-primary);
+  line-height: 1.55;
 }
 
 /* === 6. BUTTONS === */
@@ -537,12 +547,7 @@ section + section { border-top: 1px solid rgba(150, 158, 170, 0.1); }
 }
 
 /* === 10. EDUCATION === */
-.edu-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-4);
-  margin-bottom: var(--space-4);
-}
+.edu-list { margin-bottom: var(--space-4); }
 
 .plain-list { display: flex; flex-direction: column; gap: var(--space-2); }
 .plain-list li { display: flex; flex-direction: column; gap: 0.1rem; }
@@ -563,12 +568,6 @@ section + section { border-top: 1px solid rgba(150, 158, 170, 0.1); }
   font-size: 0.95rem;
 }
 .lang-row strong { color: var(--text-primary); font-weight: 600; margin-right: 0.35rem; }
-
-.community {
-  margin-top: var(--space-3);
-  font-size: var(--fs-sm);
-  color: var(--text-secondary);
-}
 
 /* === 11. CONTACT === */
 .contact { text-align: center; }
@@ -640,10 +639,10 @@ section + section { border-top: 1px solid rgba(150, 158, 170, 0.1); }
   .container { padding: 0 var(--space-2); }
 
   .glance { grid-template-columns: 1fr; margin-top: var(--space-5); }
-  .glance li { padding: var(--space-2) 0; }
+  .glance li { padding: var(--space-3) 0; }
   .glance li + li { padding-left: 0; border-left: none; border-top: 1px solid var(--border); }
 
-  .cases, .skills-grid, .edu-grid { grid-template-columns: 1fr; }
+  .cases, .skills-grid { grid-template-columns: 1fr; }
 
   .employer { padding-left: var(--space-3); }
   .employer-head { grid-template-columns: 1fr; }
