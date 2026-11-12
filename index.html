@@ -142,7 +142,7 @@
         </header>
 
         <div class="cases">
-          <article class="case case--featured">
+          <article class="case case--featured case--linked">
             <img class="case-photo" src="img/claude-meetup-rio.webp" width="1000" height="750" loading="lazy"
                  alt="Pedro Amodeo on stage with a microphone, presenting at Claude Meetup Rio #5">
             <div class="case-body">
@@ -154,6 +154,7 @@
               of tens of thousands of rows with live logistics APIs to find the root cause.
             </p>
             <p class="case-outcome">A multi-day investigation became a matter of hours. Presented at Claude Meetup Rio #5 (June 2026).</p>
+            <a class="case-link" href="cases/ai-agent.html">Read the case →</a>
             </div>
           </article>
 
@@ -168,7 +169,7 @@
             <p class="case-outcome">I took it to Product leadership, who asked for it to go to Engineering.</p>
           </article>
 
-          <article class="case">
+          <article class="case case--linked">
             <p class="case-kicker">Launch · Fashion retail</p>
             <h3>A global retailer's first digital waitlist launch</h3>
             <p>
@@ -176,6 +177,7 @@
               digital waitlist launch. Sales ran several times above the normal peak on day one.
             </p>
             <p class="case-outcome">I stayed on the account through the quarter, which closed with double-digit growth in revenue and average order value.</p>
+            <a class="case-link" href="cases/waitlist-launch.html">Read the case →</a>
           </article>
 
         </div>
@@ -418,46 +420,6 @@
     </div>
   </footer>
 
-  <script>
-    (function () {
-      // Mobile drawer: real buttons, Escape to close, focus handled.
-      var body = document.body;
-      var openBtn = document.querySelector('.nav-hamburger');
-      var closeBtn = document.querySelector('.nav-drawer-close');
-      var drawer = document.getElementById('nav-drawer');
-      function setOpen(open) {
-        body.classList.toggle('nav-open', open);
-        openBtn.setAttribute('aria-expanded', String(open));
-        if (open) setTimeout(function () { drawer.querySelector('a').focus(); }, 60);
-        else openBtn.focus();
-      }
-      openBtn.addEventListener('click', function () { setOpen(true); });
-      closeBtn.addEventListener('click', function () { setOpen(false); });
-      document.querySelector('.nav-overlay').addEventListener('click', function () { setOpen(false); });
-      drawer.querySelectorAll('a').forEach(function (a) {
-        a.addEventListener('click', function () {
-          body.classList.remove('nav-open');
-          openBtn.setAttribute('aria-expanded', 'false');
-        });
-      });
-      document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape' && body.classList.contains('nav-open')) setOpen(false);
-      });
-
-      // Highlight the section in view in the desktop nav.
-      if (!('IntersectionObserver' in window)) return;
-      var links = document.querySelectorAll('.site-nav a');
-      var observer = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (!entry.isIntersecting) return;
-          links.forEach(function (link) {
-            if (link.getAttribute('href') === '#' + entry.target.id) link.setAttribute('aria-current', 'true');
-            else link.removeAttribute('aria-current');
-          });
-        });
-      }, { rootMargin: '-45% 0px -50% 0px' });
-      document.querySelectorAll('main section[id]').forEach(function (sec) { observer.observe(sec); });
-    })();
-  </script>
+  <script src="site.js" defer></script>
 </body>
 </html>
