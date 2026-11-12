@@ -51,9 +51,6 @@
 
   <a href="#main" class="skip-link">Skip to content</a>
 
-  <!-- NAV TOGGLE (checkbox hack, mobile only; must stay before the header) -->
-  <input type="checkbox" id="nav-toggle" class="nav-toggle-input" aria-hidden="true" tabindex="-1">
-
   <header class="site-header">
     <div class="container header-inner">
       <a href="#top" class="brand" aria-label="Pedro Amodeo, back to top">
@@ -71,16 +68,16 @@
         </ul>
       </nav>
 
-      <label for="nav-toggle" class="nav-hamburger" aria-label="Open menu">
+      <button type="button" class="nav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
         <span></span><span></span><span></span>
-      </label>
+      </button>
     </div>
   </header>
 
   <!-- Mobile drawer -->
-  <label for="nav-toggle" class="nav-overlay" aria-hidden="true"></label>
-  <div class="nav-drawer">
-    <label for="nav-toggle" class="nav-drawer-close" aria-label="Close menu">✕</label>
+  <div class="nav-overlay" aria-hidden="true"></div>
+  <nav class="nav-drawer" id="nav-drawer" aria-label="Mobile">
+    <button type="button" class="nav-drawer-close" aria-label="Close menu">✕</button>
     <ul class="nav-drawer-links">
       <li><a href="#work">Work</a></li>
       <li><a href="#experience">Experience</a></li>
@@ -88,7 +85,7 @@
       <li><a href="#education">Education</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-  </div>
+  </nav>
 
   <main id="main">
 
@@ -97,7 +94,7 @@
       <div class="container">
         <div class="hero-main">
           <div class="hero-text">
-            <p class="eyebrow">Customer Success · Enterprise eCommerce &amp; SaaS</p>
+            <p class="eyebrow">Customer Success Manager · VTEX</p>
             <h1 id="hero-name" class="hero-name">Pedro Amodeo</h1>
             <p class="hero-tagline">Translating Tech into Growth</p>
             <p class="hero-bio">
@@ -129,7 +126,7 @@
           <li>
             <span class="glance-value">I'm building with AI</span>
             <span class="glance-label">Where I'm going: AI doing the heavy diagnosis, so people spend their time on the decisions.</span>
-            <span class="glance-example">An agent I built with Claude Code turned a multi-day incident investigation into hours. I shared how at Claude Meetup Rio #5.</span>
+            <span class="glance-example">My Claude Code agent cut an incident investigation from days to hours. More in the first case below.</span>
           </li>
         </ul>
       </div>
@@ -215,13 +212,12 @@
                   Since October, working across the whole team's accounts and bridging to Product.
                 </p>
                 <ul class="bullets">
-                  <li>Turned thousands of support tickets from top-tier accounts into a product-vertical map for Product leadership, which requested it for Engineering diagnosis.</li>
-                  <li>Reverse-engineered the platform's seller-allocation logic for a footwear retailer. The observed logic diverged from the documented rule in a meaningful share of decisions, while the rule I derived held across simulations with no counterexample.</li>
-                  <li>Built an AI agent with Claude Code to diagnose a cart-availability incident with millions of reais in at-risk GMV. Turned a multi-day investigation into hours.</li>
-                  <li>Owned a global fashion retailer's first digital waitlist launch, coordinating search, catalog, logistics, and engineering. Sales ran several times above the normal peak on day one.</li>
-                  <li>Retained two at-risk accounts: resolved an incident with engineering days before a Tier 1 client's Easter peak, securing full renewal, and owned C-level communication through a Tier 2 client's bot attack, fast-tracking it into a bot-protection beta.</li>
-                  <li>Retained a large pharmacy retailer that had formally signaled migration and already involved internal IT, and secured full renewal.</li>
-                </ul>
+                  <li>Led three of the cases above: the ticket-to-product map for Product leadership, the AI agent for a cart-availability incident, and a global fashion retailer's first digital waitlist launch.</li>
+                <li>Reverse-engineered the platform's seller-allocation logic for a footwear retailer. <strong>The rule I derived held across simulations with no counterexample</strong>, where the documented rule diverged in a meaningful share of decisions.</li>
+                <li>Resolved an incident with engineering days before a Tier 1 client's Easter peak, <strong>securing full renewal</strong>.</li>
+                <li>Owned C-level communication through a Tier 2 client's bot attack, <strong>fast-tracking it into a bot-protection beta</strong>.</li>
+                <li>Retained a large pharmacy retailer that had formally signaled migration and already involved internal IT, <strong>securing full renewal</strong>.</li>
+              </ul>
               </div>
 
               <div class="role">
@@ -231,9 +227,9 @@
                 </div>
                 <p class="role-desc">Technical escalation owner for enterprise accounts across Catalog, Pricing, Checkout, and OMS.</p>
                 <ul class="bullets">
-                  <li>Migrated storefronts of a supermarket client to composable architecture in under two months with zero downtime, and structured the roadmap for the remaining storefronts.</li>
+                  <li>Migrated storefronts of a supermarket client to composable architecture <strong>in under two months with zero downtime</strong>, and structured the roadmap for the remaining storefronts.</li>
                   <li>Monitored marketplace integrations (Amazon, Mercado Livre, TikTok, Shopee) for Tier 1 partners, resolving catalog and order sync failures via OpenSearch and Grafana.</li>
-                  <li>Sustained a high CSAT across client-rated support tickets, with a single negative rating over the rotation.</li>
+                  <li>Sustained <strong>a high CSAT</strong> across client-rated support tickets, with a single negative rating over the rotation.</li>
                 </ul>
               </div>
             </div>
@@ -253,8 +249,8 @@
                   <span class="role-period">Sep 2024 to Jun 2025</span>
                 </div>
                 <ul class="bullets">
-                  <li>Identified an untapped mobile acquisition segment for a desktop-only product. Designed the segmentation strategy and A/B test hypotheses with engineering, adding GMV from a previously non-converting segment.</li>
-                  <li>Restructured business logic and pricing workflows for client onboarding, cutting deal closure time by about half and letting key accounts scale to full operational capacity.</li>
+                  <li>Identified an untapped mobile acquisition segment for a desktop-only product. Designed the segmentation strategy and A/B test hypotheses with engineering, <strong>adding GMV from a previously non-converting segment</strong>.</li>
+                  <li>Restructured business logic and pricing workflows for client onboarding, <strong>cutting deal closure time by about half</strong> and letting key accounts scale to full operational capacity.</li>
                 </ul>
               </div>
 
@@ -264,7 +260,7 @@
                   <span class="role-period">Feb 2023 to Sep 2024</span>
                 </div>
                 <ul class="bullets">
-                  <li>Redesigned performance reporting and built SQL dashboards for Programmatic and Retail Media campaigns, halving processing time.</li>
+                  <li>Redesigned performance reporting and built SQL dashboards for Programmatic and Retail Media campaigns, <strong>halving processing time</strong>.</li>
                 </ul>
               </div>
 
@@ -423,25 +419,44 @@
   </footer>
 
   <script>
-    // Close the mobile drawer after picking a link, and highlight the section in view.
     (function () {
-      var toggle = document.getElementById('nav-toggle');
-      document.querySelectorAll('.nav-drawer a').forEach(function (a) {
-        a.addEventListener('click', function () { toggle.checked = false; });
+      // Mobile drawer: real buttons, Escape to close, focus handled.
+      var body = document.body;
+      var openBtn = document.querySelector('.nav-hamburger');
+      var closeBtn = document.querySelector('.nav-drawer-close');
+      var drawer = document.getElementById('nav-drawer');
+      function setOpen(open) {
+        body.classList.toggle('nav-open', open);
+        openBtn.setAttribute('aria-expanded', String(open));
+        if (open) setTimeout(function () { drawer.querySelector('a').focus(); }, 60);
+        else openBtn.focus();
+      }
+      openBtn.addEventListener('click', function () { setOpen(true); });
+      closeBtn.addEventListener('click', function () { setOpen(false); });
+      document.querySelector('.nav-overlay').addEventListener('click', function () { setOpen(false); });
+      drawer.querySelectorAll('a').forEach(function (a) {
+        a.addEventListener('click', function () {
+          body.classList.remove('nav-open');
+          openBtn.setAttribute('aria-expanded', 'false');
+        });
       });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && body.classList.contains('nav-open')) setOpen(false);
+      });
+
+      // Highlight the section in view in the desktop nav.
       if (!('IntersectionObserver' in window)) return;
       var links = document.querySelectorAll('.site-nav a');
       var observer = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
           if (!entry.isIntersecting) return;
           links.forEach(function (link) {
-            var active = link.getAttribute('href') === '#' + entry.target.id;
-            if (active) link.setAttribute('aria-current', 'true');
+            if (link.getAttribute('href') === '#' + entry.target.id) link.setAttribute('aria-current', 'true');
             else link.removeAttribute('aria-current');
           });
         });
       }, { rootMargin: '-45% 0px -50% 0px' });
-      document.querySelectorAll('main section[id]').forEach(function (s) { observer.observe(s); });
+      document.querySelectorAll('main section[id]').forEach(function (sec) { observer.observe(sec); });
     })();
   </script>
 </body>
