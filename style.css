@@ -823,7 +823,7 @@ section + section { border-top: 1px solid rgba(150, 158, 170, 0.1); }
   font-weight: 500;
   color: var(--accent);
 }
-.cs-steps h3 { font-size: 1.1rem; margin-bottom: 0.4rem; }
+.cs-steps h3 { font-size: 1.1rem; margin-bottom: 0.4rem; letter-spacing: -0.01em; }
 
 .cs-outcomes { display: flex; flex-direction: column; gap: 0.75rem; }
 .cs-outcomes li {
@@ -923,7 +923,7 @@ section + section { border-top: 1px solid rgba(150, 158, 170, 0.1); }
   color: var(--text-primary);
 }
 .cs-code .c-h { color: var(--accent); }
-.cs-code .c-w { color: var(--text-secondary); }
+.cs-code .c-w { color: var(--accent-light); }
 
 /* Agent flow: in, agent steps, out */
 .cs-flow {
@@ -978,6 +978,55 @@ section + section { border-top: 1px solid rgba(150, 158, 170, 0.1); }
 .cs-funnel-label { font-size: var(--fs-sm); color: var(--text-primary); }
 @media (max-width: 480px) {
   .cs-funnel li { min-width: 0; width: calc(60% + var(--w) * 0.4); }
+}
+
+/* In-text links on the home page */
+.glance-link, .bullets a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+.glance-link { white-space: nowrap; font-weight: 600; }
+.glance-link:hover, .bullets a:hover { color: var(--accent-light); }
+.case--linked:hover h3 { color: var(--accent); }
+.case--linked h3 { transition: color 0.15s ease; }
+
+.cs-note { margin-top: 0.6rem; font-size: var(--fs-xs); font-family: var(--mono); }
+.cs-quote {
+  margin-top: 0.6rem;
+  padding: var(--space-2) var(--space-3);
+  border-left: 2px solid var(--accent);
+  background: var(--bg-secondary);
+  border-radius: 0 8px 8px 0;
+  font-family: var(--headline);
+  font-weight: 600;
+  font-size: 1.1rem;
+  line-height: 1.4;
+  color: var(--text-primary);
+}
+
+/* Narrow phones: step number above the title, text uses the full width */
+@media (max-width: 600px) {
+  .cs-steps li { padding-left: 0; }
+  .cs-steps li::before { position: static; display: block; margin-bottom: 0.3rem; }
+}
+
+/* Contact row at the end of each case */
+.cs-contact-wrap { margin-bottom: var(--space-4); }
+.cs-contact {
+  padding: var(--space-4);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.cs-contact h2 { font-size: 1.4rem; margin-bottom: 0.5rem; text-wrap: balance; }
+.cs-contact p { color: var(--text-primary); opacity: 0.85; margin-bottom: var(--space-3); }
+.cs-contact-links { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+@media (max-width: 480px) {
+  .cs-contact { padding: var(--space-3); }
+  .cs-contact-links .btn { flex: 1 1 100%; }
+  .cs-funnel li { width: calc(30% + var(--w) * 0.7); }
 }
 
 /* Draft-only gap markers; must not exist when publishing */

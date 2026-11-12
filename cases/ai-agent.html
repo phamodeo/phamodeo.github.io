@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Finding why carts failed, with an AI agent | Pedro Amodeo</title>
-  <meta name="description" content="Case study: an AI agent built with Claude Code found why carts were failing in hours instead of days, and it was not stock.">
+  <meta name="description" content="Case study: an AI agent built with Claude Code found why carts were failing in hours instead of about two days, and it was not stock.">
   <meta name="author" content="Pedro Amodeo">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#282C34">
@@ -74,9 +74,9 @@
           <p class="eyebrow">Case study · AI · Incident diagnosis</p>
           <h1 class="cs-title">Finding why carts failed, with an AI agent</h1>
           <p class="cs-summary">
-            A client was losing millions of reais in carts that failed at checkout, and everyone assumed it was
-            stock. I built an agent with Claude Code that answered in hours instead of days, and the answer was
-            not stock.
+            A client had millions of reais in GMV at risk from carts failing at checkout, and everyone assumed it
+            was stock. I built an agent with Claude Code that found the cause in hours instead of about two days,
+            and it was not stock.
           </p>
           <dl class="cs-meta">
             <div><dt>Role</dt><dd>Customer Success Manager</dd></div>
@@ -128,18 +128,18 @@
               <figure class="cs-code" aria-label="Excerpt of the account context file, anonymized">
                 <figcaption>client-context.md · excerpt, anonymized</figcaption>
 <pre><code><span class="c-h">## Sales channels</span>
-Main store            include
-External channel      empty by design, filter out
+Main store        include
+External channel  empty, exclude
 
-<span class="c-h">## Logistics architecture</span>
-Multi-warehouse, no sellers. Store = warehouse.
-Chain: warehouse → dock → shipping policy → freight table
-<span class="c-w">One broken link and the product disappears. No fallback.</span>
+<span class="c-h">## Logistics</span>
+Multi-warehouse. Store = warehouse.
+warehouse → dock → policy → freight
+<span class="c-w">One broken link: product disappears.</span>
 
 <span class="c-h">## Analysis rules</span>
-GMV at risk = failed carts × real median ticket
-<span class="c-w">Never list price: it inflates the risk.</span>
-Only causes above a minimum volume enter the report.</code></pre>
+Risk = failed carts × median ticket
+<span class="c-w">Never list price: it inflates risk.</span>
+Report only causes above a set volume.</code></pre>
               </figure>
             </li>
             <li>
@@ -151,12 +151,12 @@ Only causes above a minimum volume enter the report.</code></pre>
               </p>
             </li>
             <li>
-              <h3>Kept the judgment calls human</h3>
+              <h3>Made the judgment calls myself, then wrote them down</h3>
               <p>
-                The parts that decide whether a number can be trusted stayed with me: excluding the channel that
-                is empty by design, measuring risk by the median ticket instead of list price, and setting the bar
-                for what counts as a real cause. Without them the same agent would have produced a fast, confident,
-                wrong answer.
+                Excluding the channel that is empty by design, measuring risk by the median ticket instead of list
+                price, and setting the bar for a real cause were my decisions; the context file makes the agent
+                apply them every time. Without them the same agent would have produced a fast, confident, wrong
+                answer.
               </p>
             </li>
             <li>
@@ -213,6 +213,17 @@ Only causes above a minimum volume enter the report.</code></pre>
 
 
       </div>
+
+      <section class="container cs-narrow cs-contact-wrap" aria-labelledby="cs-contact-title">
+        <div class="cs-contact">
+        <h2 id="cs-contact-title">Working on a problem like this?</h2>
+        <p>I'm always up for a conversation about commerce, data or AI in customer work.</p>
+        <div class="cs-contact-links">
+          <a href="mailto:pedro.amodeo@outlook.com" class="btn btn-primary">pedro.amodeo@outlook.com</a>
+          <a href="https://www.linkedin.com/in/phamodeo/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">LinkedIn ↗</a>
+        </div>
+        </div>
+      </section>
 
       <nav class="cs-next container cs-narrow" aria-label="More cases">
         <a href="/#work" class="cs-next-back">← All selected work</a>
