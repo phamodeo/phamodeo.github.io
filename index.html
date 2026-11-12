@@ -4,376 +4,430 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pedro Amodeo | Translating Tech into Growth</title>
-  <meta name="description" content="Commerce Engineer at VTEX, where technical relationships turn into business growth.">
-  <meta name="keywords" content="Pedro Amodeo, Commerce Engineer, VTEX, digital commerce, enterprise SaaS, marketplace integration, São Paulo">
+  <meta name="description" content="Customer Success Manager at VTEX, where technical relationships turn into business growth.">
   <meta name="author" content="Pedro Amodeo">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://phamodeo.com.br">
+  <meta name="theme-color" content="#282C34">
+  <link rel="canonical" href="https://phamodeo.com.br/">
 
   <!-- Open Graph (LinkedIn, WhatsApp, Slack previews) -->
   <meta property="og:title" content="Pedro Amodeo | Translating Tech into Growth">
-  <meta property="og:description" content="Commerce Engineer at VTEX, where technical relationships turn into business growth.">
+  <meta property="og:description" content="Customer Success Manager at VTEX, where technical relationships turn into business growth.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://phamodeo.com.br">
+  <meta property="og:url" content="https://phamodeo.com.br/">
   <meta property="og:image" content="https://phamodeo.com.br/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Pedro Amodeo, Customer Success Manager at VTEX. Translating Tech into Growth.">
 
   <!-- Twitter/X card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Pedro Amodeo | Translating Tech into Growth">
-  <meta name="twitter:description" content="Commerce Engineer at VTEX, where technical relationships turn into business growth.">
+  <meta name="twitter:description" content="Customer Success Manager at VTEX, where technical relationships turn into business growth.">
   <meta name="twitter:image" content="https://phamodeo.com.br/og-image.png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Pedro Amodeo",
+    "url": "https://phamodeo.com.br/",
+    "jobTitle": "Customer Success Manager",
+    "worksFor": { "@type": "Organization", "name": "VTEX" },
+    "address": { "@type": "PostalAddress", "addressLocality": "São Paulo", "addressCountry": "BR" },
+    "alumniOf": { "@type": "CollegeOrUniversity", "name": "Universidade Presbiteriana Mackenzie" },
+    "knowsLanguage": ["pt", "en", "es", "it"],
+    "sameAs": ["https://www.linkedin.com/in/phamodeo/"]
+  }
+  </script>
+
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='12' fill='%23282C34'/><text x='50' y='50' text-anchor='middle' dominant-baseline='central' font-size='40' font-family='sans-serif' font-weight='700' letter-spacing='-1' fill='%23E489A0'>PA</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=Geist+Mono:wght@300..700&family=Sora:wght@400..800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400&family=Geist+Mono:wght@400;500&family=Sora:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- NAV TOGGLE (checkbox hack — must be first sibling) -->
-  <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+  <a href="#main" class="skip-link">Skip to content</a>
 
-  <!-- Overlay — clicar fecha o drawer -->
-  <label for="nav-toggle" class="nav-overlay"></label>
+  <!-- NAV TOGGLE (checkbox hack, mobile only; must stay before the header) -->
+  <input type="checkbox" id="nav-toggle" class="nav-toggle-input" aria-hidden="true" tabindex="-1">
 
-  <!-- Side drawer -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#top" class="brand" aria-label="Pedro Amodeo, back to top">
+        <span class="brand-mark">PA</span>
+        <span class="brand-name">Pedro Amodeo</span>
+      </a>
+
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#contact" class="nav-cta">Contact</a></li>
+        </ul>
+      </nav>
+
+      <label for="nav-toggle" class="nav-hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </label>
+    </div>
+  </header>
+
+  <!-- Mobile drawer -->
+  <label for="nav-toggle" class="nav-overlay" aria-hidden="true"></label>
   <div class="nav-drawer">
-    <label for="nav-toggle" class="nav-drawer-close">✕</label>
+    <label for="nav-toggle" class="nav-drawer-close" aria-label="Close menu">✕</label>
     <ul class="nav-drawer-links">
-      <li><a href="#about">about</a></li>
-      <li><a href="#experience">experience</a></li>
-      <li><a href="#skills">skills</a></li>
-      <li><a href="#education">education</a></li>
-      <li><a href="#contact">contact</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
   </div>
 
-  <!-- Hamburger button -->
-  <label for="nav-toggle" class="nav-hamburger" aria-label="Open menu">
-    <span></span>
-    <span></span>
-    <span></span>
-  </label>
-
-  <main>
+  <main id="main">
 
     <!-- HERO -->
-    <section id="hero" class="hero">
-      <div class="hero-inner container">
-        <p class="hero-tag">// Commerce Engineer · Customer Success</p>
-        <h1 class="hero-name">Pedro Amodeo<span class="cursor"></span></h1>
-        <h2 class="hero-tagline">Translating Tech into Growth</h2>
+    <section id="top" class="hero" aria-labelledby="hero-name">
+      <div class="container">
+        <p class="eyebrow">Customer Success · Enterprise eCommerce &amp; SaaS</p>
+        <h1 id="hero-name" class="hero-name">Pedro Amodeo</h1>
+        <p class="hero-tagline">Translating Tech into Growth</p>
         <p class="hero-bio">
-          Commerce Engineer at VTEX. I own the technical relationship and the commercial one
-          in the same conversation — 30 enterprise accounts across retail and consumer goods,
-          ~$16M annual GMV. Background in Economics, then revenue operations in AdTech,
-          now on the platform side.
+          Most problems in enterprise accounts aren't purely technical or purely commercial.
+          They live somewhere in between. I work in that space at VTEX: platform diagnosis,
+          engineering escalation, and the C-level conversation, on the same account.
         </p>
         <div class="hero-ctas">
-          <a href="#experience" class="btn btn-primary">View Experience</a>
-          <a href="https://linkedin.com/in/phamodeo/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">LinkedIn ↗</a>
+          <a href="#work" class="btn btn-primary">Selected work</a>
+          <a href="https://www.linkedin.com/in/phamodeo/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">LinkedIn ↗</a>
+          <a href="mailto:pedro.amodeo@outlook.com" class="btn btn-ghost">Email</a>
         </div>
+
+        <ul class="glance" aria-label="At a glance">
+          <li>
+            <span class="glance-value">Over $100M</span>
+            <span class="glance-label">annual GMV across dozens of enterprise accounts owned through H1 2026</span>
+          </li>
+          <li>
+            <span class="glance-value">Thousands</span>
+            <span class="glance-label">of support tickets turned into a product map for Product leadership</span>
+          </li>
+          <li>
+            <span class="glance-value">Speaker</span>
+            <span class="glance-label">Claude Meetup Rio #5, on AI-built account diagnostics</span>
+          </li>
+        </ul>
       </div>
     </section>
 
-    <!-- ABOUT -->
-    <section id="about">
+    <!-- SELECTED WORK -->
+    <section id="work" aria-labelledby="work-title">
       <div class="container">
-        <h2 class="section-heading"><span class="section-index">01.</span>About</h2>
+        <header class="section-head">
+          <p class="section-index">01</p>
+          <h2 id="work-title">Selected work</h2>
+          <p class="section-lede">A few cases where the technical answer and the business answer turned out to be the same one.</p>
+        </header>
 
-        <div class="metrics-grid">
-          <div class="metric-card">
-            <span class="metric-number">~$16M</span>
-            <span class="metric-label">Annual GMV Managed</span>
-          </div>
-          <div class="metric-card">
-            <span class="metric-number">30</span>
-            <span class="metric-label">Enterprise Accounts</span>
-          </div>
-          <div class="metric-card">
-            <span class="metric-number">$220K</span>
-            <span class="metric-label">Single-Day Launch GMV</span>
-          </div>
-        </div>
+        <div class="cases">
+          <article class="case">
+            <p class="case-kicker">AI · Incident diagnosis</p>
+            <h3>An AI agent to find why carts were failing</h3>
+            <p>
+              A cart-availability issue was putting millions of reais in GMV at risk, and no one could tell why
+              carts were failing at checkout. I built an agent with Claude Code that cross-referenced a dataset
+              of tens of thousands of rows with live logistics APIs to find the root cause.
+            </p>
+            <p class="case-outcome">A multi-day investigation became a matter of hours. Presented at Claude Meetup Rio #5 (June 2026).</p>
+          </article>
 
-        <div class="about-bio">
-          <p>
-            I handle the technical relationship and the commercial one in the same conversation.
-            Full account ownership: incident resolution, renewals, contract expansion, QBRs
-            with C-level and IT stakeholders. Background in Economics, then 3+ years in
-            revenue operations and AdTech before moving to the platform side at VTEX.
-          </p>
-          <p class="about-quote">
-            Technical decisions should always be traceable back to business impact.
-          </p>
-          <p>
-            Based in São Paulo, SP. Part of VTEX's Digital Commerce Specialist Program,
-            working with enterprise retail and consumer goods accounts across Latin America.
-          </p>
-        </div>
+          <article class="case">
+            <p class="case-kicker">Product · Data</p>
+            <h3>From support tickets to a product map</h3>
+            <p>
+              I turned thousands of support tickets from the largest accounts into a product-vertical map.
+              A handful of verticals concentrated most of the volume, and top-tier accounts opened far more
+              marketplace tickets than average.
+            </p>
+            <p class="case-outcome">I took it to Product leadership, who asked for it to go to Engineering.</p>
+          </article>
 
-        <div class="lang-grid">
-          <div class="lang-card">
-            <span class="lang-card-code">PT</span>
-            <span class="lang-card-name">Portuguese</span>
-            <span class="lang-card-level">Native</span>
-          </div>
-          <div class="lang-card">
-            <span class="lang-card-code">EN</span>
-            <span class="lang-card-name">English</span>
-            <span class="lang-card-level">Fluent</span>
-          </div>
-          <div class="lang-card">
-            <span class="lang-card-code">IT</span>
-            <span class="lang-card-name">Italian</span>
-            <span class="lang-card-level">Intermediate</span>
-          </div>
-          <div class="lang-card">
-            <span class="lang-card-code">ES</span>
-            <span class="lang-card-name">Spanish</span>
-            <span class="lang-card-level">Intermediate</span>
-          </div>
+          <article class="case">
+            <p class="case-kicker">Launch · Fashion retail</p>
+            <h3>A global retailer's first digital waitlist launch</h3>
+            <p>
+              Coordinated search, catalog, logistics, and engineering for a global fashion retailer's first
+              digital waitlist launch. Sales ran several times above the normal peak on day one.
+            </p>
+            <p class="case-outcome">I stayed on the account through the quarter, which closed with double-digit growth in revenue and average order value.</p>
+          </article>
+
+          <article class="case">
+            <p class="case-kicker">Retention · Pharmacy retail</p>
+            <h3>Keeping an account that had decided to leave</h3>
+            <p>
+              A large pharmacy retailer had formally signaled it would migrate off the platform and had already
+              involved its internal IT. I mapped what was driving the decision and worked through it with the
+              internal teams.
+            </p>
+            <p class="case-outcome">Full renewal secured.</p>
+          </article>
         </div>
       </div>
     </section>
 
     <!-- EXPERIENCE -->
-    <section id="experience">
+    <section id="experience" aria-labelledby="experience-title">
       <div class="container">
-        <h2 class="section-heading"><span class="section-index">02.</span>Experience</h2>
+        <header class="section-head">
+          <p class="section-index">02</p>
+          <h2 id="experience-title">Experience</h2>
+        </header>
 
-        <div class="timeline">
+        <ol class="timeline">
 
-          <!-- VTEX -->
-          <div class="employer-block">
-            <div class="employer-header">
-              <span class="employer-name">VTEX</span>
-              <span class="employer-meta">Global composable digital commerce platform · São Paulo, SP</span>
-              <span class="employer-period">Jul 2025 — Present</span>
+          <li class="employer">
+            <div class="employer-head">
+              <h3 class="employer-name">VTEX</h3>
+              <p class="employer-meta">Global composable commerce platform · São Paulo</p>
+              <p class="employer-period">Jul 2025 to present</p>
             </div>
+            <p class="employer-note">Selected for the Digital Commerce Specialist Program, VTEX's technical commercial rotational program.</p>
 
-            <div class="job-entry">
-              <div class="job-header">
-                <span class="job-title">Commerce Engineer / Technical Customer Success Manager</span>
-                <span class="job-period">Mar 2026 — Present</span>
+            <div class="role">
+              <div class="role-head">
+                <h4 class="role-title">Customer Success Manager</h4>
+                <span class="role-period">Mar 2026 to present</span>
               </div>
-              <p class="job-subtitle">2nd Rotation — Digital Commerce Specialist Program</p>
-              <p class="job-desc">
-                Full account ownership across 30 enterprise accounts in retail and consumer goods
-                — incident resolution, renewals, contract expansion, and QBRs. Combined annual GMV of ~$16M.
+              <p class="role-desc">
+                Through H1 2026, owned a portfolio of dozens of enterprise accounts (over $100M in annual GMV),
+                several taken over mid-cycle. Also technical counterpart for Tier 0 and Tier 1 accounts.
+                Since October, working across the whole team's accounts and bridging to Product.
               </p>
-              <ul class="job-bullets">
-                <li>Led the first digital waitlist launch for a global fashion retailer, coordinating search, catalog, logistics, and engineering. Result: $220K GMV on launch day ($100K+ in the first 25 min), 3x conversion rate, 95% sell-through by mid-afternoon.</li>
-                <li>Identified an upsell opportunity for a Tier 2 beauty account by mapping underused platform capabilities to their omnichannel roadmap. Proposed FastStore migration and marketplace expansion; secured executive buy-in and expanded contract scope.</li>
-                <li>Diagnosed and resolved a platform failure for a Tier 1 confectionery retailer days before Easter peak, coordinating directly with engineering. Protected a $2M annual GMV account and secured full renewal.</li>
-                <li>Managed an active bot attack and fraud incident for a Tier 2 account under churn risk. Coordinated C-level communication and fast-tracked the account into a beta bot-protection feature, influencing platform roadmap. Preserved 26% QoQ GMV growth and retained the account.</li>
+              <ul class="bullets">
+                <li>Turned thousands of support tickets from top-tier accounts into a product-vertical map for Product leadership, which requested it for Engineering diagnosis.</li>
+                <li>Reverse-engineered the platform's seller-allocation logic for a footwear retailer. The observed logic diverged from the documented rule in a meaningful share of decisions, while the rule I derived held across simulations with no counterexample.</li>
+                <li>Built an AI agent with Claude Code to diagnose a cart-availability incident with millions of reais in at-risk GMV. Turned a multi-day investigation into hours.</li>
+                <li>Owned a global fashion retailer's first digital waitlist launch, coordinating search, catalog, logistics, and engineering. Sales ran several times above the normal peak on day one.</li>
+                <li>Retained two at-risk accounts: resolved an incident with engineering days before a Tier 1 client's Easter peak, securing full renewal, and owned C-level communication through a Tier 2 client's bot attack, fast-tracking it into a bot-protection beta.</li>
+                <li>Retained a large pharmacy retailer that had formally signaled migration and already involved internal IT, and secured full renewal.</li>
               </ul>
             </div>
 
-            <div class="job-entry">
-              <div class="job-header">
-                <span class="job-title">Field Software Engineer / Technical Support Engineer</span>
-                <span class="job-period">Jul 2025 — Feb 2026</span>
+            <div class="role">
+              <div class="role-head">
+                <h4 class="role-title">Field Software Engineer</h4>
+                <span class="role-period">Jul 2025 to Feb 2026</span>
               </div>
-              <p class="job-subtitle">1st Rotation — Digital Commerce Specialist Program</p>
-              <p class="job-desc">
-                Technical escalation owner for enterprise accounts across Catalog, Pricing, Checkout, and OMS.
-              </p>
-              <ul class="job-bullets">
-                <li>Identified and resolved critical catalog configuration errors for an enterprise partner, directly enabling a +10% increase in marketplace sales channel revenue.</li>
-                <li>Migrated 2 storefronts of a $1.4M GMV supermarket client to composable architecture in under 2 months with zero downtime, and structured the migration roadmap for 3 additional storefronts.</li>
-                <li>Monitored 10+ marketplace integrations (Amazon, Mercado Livre, TikTok, Shopee) for Tier 1 partners, diagnosing and resolving catalog and order sync failures via OpenSearch and Grafana.</li>
+              <p class="role-desc">Technical escalation owner for enterprise accounts across Catalog, Pricing, Checkout, and OMS.</p>
+              <ul class="bullets">
+                <li>Migrated storefronts of a supermarket client to composable architecture in under two months with zero downtime, and structured the roadmap for the remaining storefronts.</li>
+                <li>Monitored marketplace integrations (Amazon, Mercado Livre, TikTok, Shopee) for Tier 1 partners, resolving catalog and order sync failures via OpenSearch and Grafana.</li>
+                <li>Sustained a high CSAT across client-rated support tickets, with a single negative rating over the rotation.</li>
               </ul>
             </div>
-          </div>
+          </li>
 
-          <!-- Voxus -->
-          <div class="employer-block">
-            <div class="employer-header">
-              <span class="employer-name">Voxus Mídia</span>
-              <span class="employer-meta">Programmatic and retail media AdTech for digital commerce · São Paulo, SP</span>
-              <span class="employer-period">Feb 2022 — Jun 2025</span>
+          <li class="employer">
+            <div class="employer-head">
+              <h3 class="employer-name">Voxus Mídia</h3>
+              <p class="employer-meta">Programmatic and retail media AdTech · São Paulo</p>
+              <p class="employer-period">Feb 2022 to Jun 2025</p>
             </div>
 
-            <div class="job-entry">
-              <div class="job-header">
-                <span class="job-title">Operations Analyst — Revenue Operations &amp; Growth</span>
-                <span class="job-period">Sep 2024 — Jun 2025</span>
+            <div class="role">
+              <div class="role-head">
+                <h4 class="role-title">Operations Analyst, Revenue Operations &amp; Growth</h4>
+                <span class="role-period">Sep 2024 to Jun 2025</span>
               </div>
-              <ul class="job-bullets">
-                <li>Identified an untapped mobile acquisition segment for a desktop-only product. Designed segmentation strategy and A/B test hypotheses with engineering to optimize the algorithm for mobile conversion. Result: +10% increase in total company GMV from a previously non-converting segment.</li>
-                <li>Restructured business logic and pricing workflows for client onboarding, cutting deal closure time from ~2 weeks to 1 week. Enabled 10+ key accounts to scale to full operational capacity, a segment representing over 30% of company revenue.</li>
+              <ul class="bullets">
+                <li>Identified an untapped mobile acquisition segment for a desktop-only product. Designed the segmentation strategy and A/B test hypotheses with engineering, adding GMV from a previously non-converting segment.</li>
+                <li>Restructured business logic and pricing workflows for client onboarding, cutting deal closure time by about half and letting key accounts scale to full operational capacity.</li>
               </ul>
             </div>
 
-            <div class="job-entry">
-              <div class="job-header">
-                <span class="job-title">Jr. Operations Analyst</span>
-                <span class="job-period">Feb 2023 — Sep 2024</span>
+            <div class="role">
+              <div class="role-head">
+                <h4 class="role-title">Junior Operations Analyst</h4>
+                <span class="role-period">Feb 2023 to Sep 2024</span>
               </div>
-              <ul class="job-bullets">
-                <li>Redesigned performance reporting workflows and built SQL dashboards for Programmatic and Retail Media campaigns, cutting processing time by 50% and enabling data-driven decisions for clients and internal teams.</li>
+              <ul class="bullets">
+                <li>Redesigned performance reporting and built SQL dashboards for Programmatic and Retail Media campaigns, halving processing time.</li>
               </ul>
             </div>
 
-            <div class="job-entry">
-              <div class="job-header">
-                <span class="job-title">Operations Assistant</span>
-                <span class="job-period">Feb 2022 — Feb 2023</span>
+            <div class="role">
+              <div class="role-head">
+                <h4 class="role-title">Operations Assistant</h4>
+                <span class="role-period">Feb 2022 to Feb 2023</span>
               </div>
-              <ul class="job-bullets">
-                <li>Standardized programmatic media campaign workflows and built analytical reports supporting account and operations teams across 50+ active clients.</li>
+              <ul class="bullets">
+                <li>Standardized programmatic campaign workflows and built analytical reports for account and operations teams across dozens of active clients.</li>
               </ul>
             </div>
-          </div>
+          </li>
 
-          <!-- Sodexo -->
-          <div class="employer-block">
-            <div class="employer-header">
-              <span class="employer-name">Sodexo / Pluxee</span>
-              <span class="employer-meta">Global employee benefits platform · Barueri, SP</span>
-              <span class="employer-period">Jan 2021 — Feb 2022</span>
+          <li class="employer">
+            <div class="employer-head">
+              <h3 class="employer-name">Pluxee (Sodexo)</h3>
+              <p class="employer-meta">Global employee benefits platform · Barueri</p>
+              <p class="employer-period">Jan 2021 to Feb 2022</p>
             </div>
 
-            <div class="job-entry">
-              <div class="job-header">
-                <span class="job-title">Partner Operations Intern</span>
-                <span class="job-period">Jan 2021 — Feb 2022</span>
+            <div class="role">
+              <div class="role-head">
+                <h4 class="role-title">Partner Operations Intern</h4>
+                <span class="role-period">Jan 2021 to Feb 2022</span>
               </div>
-              <ul class="job-bullets">
-                <li>Managed daily relationships with major acquiring partners — Cielo, Rede, Stone, GetNet — as primary point of contact for technical troubleshooting.</li>
-                <li>Contributed to restructuring the e-commerce partnership process, improving merchant onboarding and delivering KPI dashboards from high-volume data.</li>
+              <ul class="bullets">
+                <li>Managed technical integrations with payment and marketplace partners (Cielo, Rede, Stone, iFood, Magalu), troubleshooting issues affecting merchant transactions.</li>
               </ul>
             </div>
-          </div>
+          </li>
 
-        </div>
+        </ol>
       </div>
     </section>
 
     <!-- SKILLS -->
-    <section id="skills">
+    <section id="skills" aria-labelledby="skills-title">
       <div class="container">
-        <h2 class="section-heading"><span class="section-index">03.</span>Skills</h2>
-
-        <div class="skills-highlight">
-          <span class="skill-tag skill-tag--highlight">Customer Success Management</span>
-          <span class="skill-tag skill-tag--highlight">Technical Account Management</span>
-          <span class="skill-tag skill-tag--highlight">Digital Commerce Architecture</span>
-          <span class="skill-tag skill-tag--highlight">Enterprise SaaS</span>
-          <span class="skill-tag skill-tag--highlight">Marketplace Integration</span>
-        </div>
+        <header class="section-head">
+          <p class="section-index">03</p>
+          <h2 id="skills-title">Skills</h2>
+        </header>
 
         <div class="skills-grid">
-          <div class="skill-category">
-            <span class="skill-category-label">// Commerce &amp; Platforms</span>
-            <div class="skill-tags">
-              <span class="skill-tag">VTEX</span>
-              <span class="skill-tag">VTEX IO</span>
-              <span class="skill-tag">FastStore</span>
-              <span class="skill-tag">Composable Commerce</span>
-              <span class="skill-tag">GraphQL</span>
-              <span class="skill-tag">OMS</span>
-              <span class="skill-tag">B2C / B2B</span>
-            </div>
+          <div class="card skill-group">
+            <h3>Customer success &amp; accounts</h3>
+            <ul class="tags">
+              <li>Account ownership</li>
+              <li>Renewal &amp; expansion</li>
+              <li>Churn mitigation</li>
+              <li>Executive stakeholders</li>
+              <li>QBRs</li>
+              <li>Account planning</li>
+              <li>Engineering escalation</li>
+              <li>Onboarding &amp; enablement</li>
+            </ul>
           </div>
 
-          <div class="skill-category">
-            <span class="skill-category-label">// Marketplaces &amp; AdTech</span>
-            <div class="skill-tags">
-              <span class="skill-tag">Amazon</span>
-              <span class="skill-tag">Mercado Livre</span>
-              <span class="skill-tag">TikTok Shop</span>
-              <span class="skill-tag">Shopee</span>
-            </div>
+          <div class="card skill-group">
+            <h3>Commerce platform</h3>
+            <ul class="tags">
+              <li>VTEX IO</li>
+              <li>FastStore</li>
+              <li>Composable &amp; headless</li>
+              <li>Intelligent Search</li>
+              <li>OMS &amp; logistics</li>
+              <li>Marketplace integrations</li>
+              <li>Solution design</li>
+              <li>REST APIs</li>
+              <li>GraphQL</li>
+            </ul>
           </div>
 
-          <div class="skill-category">
-            <span class="skill-category-label">// Data &amp; Analytics</span>
-            <div class="skill-tags">
-              <span class="skill-tag">SQL</span>
-              <span class="skill-tag">OpenSearch</span>
-              <span class="skill-tag">Grafana</span>
-              <span class="skill-tag">Looker Studio</span>
-              <span class="skill-tag">Google Analytics</span>
-            </div>
+          <div class="card skill-group">
+            <h3>Diagnostics &amp; data</h3>
+            <ul class="tags">
+              <li>OpenSearch</li>
+              <li>Grafana</li>
+              <li>SQL</li>
+              <li>Looker Studio</li>
+              <li>Google Analytics</li>
+              <li>Fraud prevention</li>
+            </ul>
           </div>
 
-          <div class="skill-category">
-            <span class="skill-category-label">// Customer Success &amp; Strategy</span>
-            <div class="skill-tags">
-              <span class="skill-tag">QBRs</span>
-              <span class="skill-tag">Account Planning</span>
-              <span class="skill-tag">Account Retention</span>
-              <span class="skill-tag">Expansion Revenue</span>
-              <span class="skill-tag">NRR Tracking</span>
-              <span class="skill-tag">Engineering Escalation</span>
-              <span class="skill-tag">C-Level Engagement</span>
-              <span class="skill-tag">Revenue Operations</span>
-            </div>
-          </div>
-
-          <div class="skill-category">
-            <span class="skill-category-label">// Tools</span>
-            <div class="skill-tags">
-              <span class="skill-tag">RESTful APIs</span>
-              <span class="skill-tag">Postman</span>
-              <span class="skill-tag">Git</span>
-              <span class="skill-tag">Google Apps Script</span>
-            </div>
+          <div class="card skill-group">
+            <h3>AI &amp; automation</h3>
+            <ul class="tags">
+              <li>Claude Code</li>
+              <li>AI agents</li>
+              <li>Google Apps Script</li>
+              <li>Postman</li>
+              <li>Git</li>
+            </ul>
           </div>
         </div>
       </div>
     </section>
 
     <!-- EDUCATION -->
-    <section id="education">
+    <section id="education" aria-labelledby="education-title">
       <div class="container">
-        <h2 class="section-heading"><span class="section-index">04.</span>Education</h2>
+        <header class="section-head">
+          <p class="section-index">04</p>
+          <h2 id="education-title">Education</h2>
+        </header>
 
-        <div class="edu-list">
-          <div class="edu-card">
-            <div class="edu-degree">Bachelor's Degree — Economics</div>
-            <div class="edu-school">Universidade Presbiteriana Mackenzie</div>
+        <div class="edu-grid">
+          <div>
+            <h3 class="subhead">Degrees &amp; programs</h3>
+            <ul class="plain-list">
+              <li>
+                <span class="item-title">Bachelor's in Economics</span>
+                <span class="item-meta">Universidade Presbiteriana Mackenzie</span>
+              </li>
+              <li>
+                <span class="item-title">Political Economy and Market Policy</span>
+                <span class="item-meta">TFAS Guatemala · Universidad Francisco Marroquín · 2022</span>
+              </li>
+              <li>
+                <span class="item-title">U.S. High School Diploma</span>
+                <span class="item-meta">University of Missouri, international program · 2017</span>
+              </li>
+            </ul>
           </div>
-          <div class="edu-card">
-            <div class="edu-degree">International Program in Political Economy and Market Policy</div>
-            <div class="edu-school">TFAS Guatemala · Universidad Francisco Marroquín · Summer 2022</div>
-          </div>
-          <div class="edu-card">
-            <div class="edu-degree">U.S. High School Diploma</div>
-            <div class="edu-school">University of Missouri (international program) · 2015 – 2017</div>
+
+          <div>
+            <h3 class="subhead">Certifications</h3>
+            <ul class="plain-list">
+              <li>
+                <span class="item-title">Commerce Management Certification, Level 2</span>
+                <span class="item-meta">EICOM Institute · VTEX Academy · 2026</span>
+              </li>
+              <li>
+                <span class="item-title">Claude 101</span>
+              </li>
+              <li>
+                <span class="item-title">AI for Leaders</span>
+                <span class="item-meta">StartSe University</span>
+              </li>
+            </ul>
           </div>
         </div>
 
-        <p class="subsection-label">// certifications</p>
-        <ul class="cert-list">
-          <li><span class="cert-name">Commerce Management Certification Level 2</span> <span class="cert-issuer">VTEX Academy · EICOM Institute · 2026</span></li>
-          <li><span class="cert-name">AI for Leaders</span> <span class="cert-issuer">StartSe University</span></li>
-          <li><span class="cert-name">VTEX 101</span> <span class="cert-issuer">VTEX</span></li>
-          <li><span class="cert-name">IV Mackenzie Forum on Economic Freedom</span> <span class="cert-issuer">Article Submission · 2021</span></li>
-        </ul>
+        <div class="lang-row" aria-label="Languages">
+          <h3 class="subhead">Languages</h3>
+          <ul>
+            <li><strong>Portuguese</strong> native</li>
+            <li><strong>English</strong> bilingual</li>
+            <li><strong>Spanish</strong> conversational</li>
+            <li><strong>Italian</strong> conversational</li>
+          </ul>
+        </div>
 
-        <p class="subsection-label">// community</p>
-        <ul class="cert-list">
-          <li><span class="cert-name">Intervidas Baptist Community Volunteer</span> <span class="cert-issuer">2018 – 2024</span></li>
-          <li><span class="cert-name">Order of DeMolay Event Planning Volunteer</span> <span class="cert-issuer">2016 – 2018</span></li>
-        </ul>
+        <p class="community">Volunteer at Intervidas Baptist Community (2018 to 2024) and Order of DeMolay event planning (2016 to 2018).</p>
       </div>
     </section>
 
     <!-- CONTACT -->
-    <section id="contact">
-      <div class="container contact-inner">
-        <h2 class="section-heading"><span class="section-index">05.</span>Contact</h2>
-        <p class="contact-intro">Let's talk commerce, tech, or anything in between.</p>
+    <section id="contact" class="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <p class="section-index">05</p>
+        <h2 id="contact-title">Let's talk commerce, tech, or anything in between.</h2>
         <div class="contact-links">
-          <a href="mailto:pedro.amodeo@outlook.com" class="btn btn-secondary">pedro.amodeo@outlook.com ↗</a>
-          <a href="https://linkedin.com/in/phamodeo/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">LinkedIn ↗</a>
+          <a href="mailto:pedro.amodeo@outlook.com" class="btn btn-primary">pedro.amodeo@outlook.com</a>
+          <a href="https://www.linkedin.com/in/phamodeo/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">LinkedIn ↗</a>
         </div>
-        <p class="contact-location">// São Paulo, SP, Brazil</p>
+        <p class="contact-location">São Paulo, Brazil</p>
       </div>
     </section>
 
@@ -381,9 +435,32 @@
 
   <footer class="footer">
     <div class="container">
-      <span>Pedro Amodeo · Built with HTML &amp; CSS · 2026</span>
+      <span>Pedro Amodeo · 2026</span>
+      <a href="#top">Back to top ↑</a>
     </div>
   </footer>
 
+  <script>
+    // Close the mobile drawer after picking a link, and highlight the section in view.
+    (function () {
+      var toggle = document.getElementById('nav-toggle');
+      document.querySelectorAll('.nav-drawer a').forEach(function (a) {
+        a.addEventListener('click', function () { toggle.checked = false; });
+      });
+      if (!('IntersectionObserver' in window)) return;
+      var links = document.querySelectorAll('.site-nav a');
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          links.forEach(function (link) {
+            var active = link.getAttribute('href') === '#' + entry.target.id;
+            if (active) link.setAttribute('aria-current', 'true');
+            else link.removeAttribute('aria-current');
+          });
+        });
+      }, { rootMargin: '-45% 0px -50% 0px' });
+      document.querySelectorAll('main section[id]').forEach(function (s) { observer.observe(s); });
+    })();
+  </script>
 </body>
 </html>
