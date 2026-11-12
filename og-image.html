@@ -4,15 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=1200">
   <title>OG Image, Pedro Amodeo</title>
+  <!--
+    Source for og-image.png (1200x630). Rendered with headless Chrome:
+    chrome --headless=new --window-size=1200,630 --screenshot=og-image.png og-image.html
+
+    Sized for small previews: LinkedIn shows this at ~550px wide on the web
+    and ~350px in the app (about 0.3x), so every text line is 36px or larger
+    and only high-contrast colors are used.
+  -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Geist+Mono:wght@400&family=Sora:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,500&family=Sora:wght@600;700&display=swap" rel="stylesheet">
   <style>
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     html, body {
       width: 1200px;
@@ -23,85 +27,69 @@
     }
 
     body {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: 1fr 500px;
     }
 
-    .corner-tl {
-      position: absolute;
-      top: 40px;
-      left: 52px;
-      font-family: 'Geist Mono', monospace;
-      font-size: 16px;
-      color: #4E5560;
-      letter-spacing: 0.05em;
-    }
-
-    .corner-br {
-      position: absolute;
-      bottom: 40px;
-      right: 52px;
-      font-family: 'Geist Mono', monospace;
-      font-size: 16px;
-      color: #4E5560;
-      letter-spacing: 0.04em;
-    }
-
-    .center {
+    .text {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      text-align: center;
+      justify-content: center;
+      padding: 0 56px 0 76px;
     }
 
     .name {
       font-family: 'Sora', sans-serif;
-      font-size: 78px;
+      font-size: 84px;
       font-weight: 700;
       color: #F7F5F8;
-      letter-spacing: -0.03em;
-      line-height: 1.05;
-      margin-bottom: 20px;
+      letter-spacing: -0.035em;
+      line-height: 1;
     }
 
-    .title {
+    .role {
+      margin-top: 26px;
       font-family: 'DM Sans', sans-serif;
-      font-size: 28px;
-      font-weight: 400;
-      color: #969EAA;
-      letter-spacing: 0.01em;
+      font-size: 40px;
+      font-weight: 500;
+      color: #F7F5F8;
+      letter-spacing: -0.01em;
+      line-height: 1.2;
     }
 
     .divider {
-      width: 200px;
-      height: 2px;
+      width: 96px;
+      height: 6px;
+      border-radius: 3px;
       background: #E489A0;
-      margin: 32px 0;
+      margin: 40px 0 34px;
     }
 
     .tagline {
       font-family: 'Sora', sans-serif;
-      font-size: 26px;
+      font-size: 42px;
       font-weight: 600;
-      color: #F7F5F8;
-      letter-spacing: -0.01em;
+      color: #E489A0;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+    }
+
+    .photo {
+      width: 500px;
+      height: 630px;
+      object-fit: cover;
+      object-position: 50% 35%;
+      display: block;
     }
   </style>
 </head>
 <body>
-
-  <span class="corner-tl">// phamodeo.com.br</span>
-
-  <div class="center">
+  <div class="text">
     <h1 class="name">Pedro Amodeo</h1>
-    <p class="title">Customer Success Manager @ VTEX</p>
+    <p class="role">Customer Success Manager<br>at VTEX</p>
     <div class="divider"></div>
-    <p class="tagline">Translating Tech into Growth</p>
+    <p class="tagline">Translating Tech<br>into Growth</p>
   </div>
-
-  <span class="corner-br">Enterprise eCommerce &amp; SaaS &nbsp;·&nbsp; São Paulo</span>
-
+  <img class="photo" src="img/pedro-amodeo.webp" alt="">
 </body>
 </html>
