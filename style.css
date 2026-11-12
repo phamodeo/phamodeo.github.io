@@ -898,6 +898,70 @@ section + section { border-top: 1px solid rgba(150, 158, 170, 0.1); }
 .cs-next-label { font-family: var(--mono); font-size: var(--fs-xs); color: var(--accent); }
 .cs-next-title { font-family: var(--headline); font-weight: 600; }
 
+/* Context file excerpt */
+.cs-code {
+  margin-top: var(--space-2);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.cs-code figcaption {
+  padding: 0.55rem 1rem;
+  border-bottom: 1px solid var(--border);
+  font-family: var(--mono);
+  font-size: var(--fs-xs);
+  color: var(--text-secondary);
+}
+.cs-code pre {
+  margin: 0;
+  padding: 1rem;
+  overflow-x: auto;
+  font-family: var(--mono);
+  font-size: 0.8125rem;
+  line-height: 1.7;
+  color: var(--text-primary);
+}
+.cs-code .c-h { color: var(--accent); }
+.cs-code .c-w { color: var(--text-secondary); }
+
+/* Agent flow: in, agent steps, out */
+.cs-flow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr) minmax(0, 1fr);
+  gap: var(--space-2);
+}
+.cs-flow-col {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: var(--space-2) var(--space-2) var(--space-3);
+}
+.cs-flow-col--main { border-color: var(--accent); }
+.cs-flow-label {
+  font-family: var(--mono);
+  font-size: var(--fs-xs);
+  color: var(--accent) !important;
+  margin-bottom: 0.6rem;
+}
+.cs-flow ul, .cs-flow ol { display: flex; flex-direction: column; gap: 0.45rem; }
+.cs-flow li { font-size: var(--fs-sm); color: var(--text-primary); line-height: 1.4; }
+.cs-flow ol { counter-reset: flow; }
+.cs-flow ol li { counter-increment: flow; padding-left: 1.6rem; position: relative; }
+.cs-flow ol li::before {
+  content: counter(flow);
+  position: absolute;
+  left: 0;
+  font-family: var(--mono);
+  font-size: var(--fs-xs);
+  color: var(--accent);
+  top: 0.1rem;
+}
+@media (max-width: 768px) {
+  .cs-flow { grid-template-columns: minmax(0, 1fr); }
+  .cs-code pre { white-space: pre-wrap; overflow-wrap: anywhere; }
+}
+
 /* Draft-only gap markers; must not exist when publishing */
 .todo {
   padding: 0.6rem 0.9rem;

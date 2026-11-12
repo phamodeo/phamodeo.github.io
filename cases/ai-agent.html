@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Finding why carts failed, with an AI agent | Pedro Amodeo</title>
-  <meta name="description" content="Case study: an AI agent built with Claude Code turned a multi-day cart-availability investigation into a matter of hours.">
+  <meta name="description" content="Case study: an AI agent built with Claude Code found why carts were failing in hours instead of days, and it was not stock.">
   <meta name="author" content="Pedro Amodeo">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#282C34">
@@ -74,14 +74,15 @@
           <p class="eyebrow">Case study · AI · Incident diagnosis</p>
           <h1 class="cs-title">Finding why carts failed, with an AI agent</h1>
           <p class="cs-summary">
-            A cart-availability incident was putting millions of reais in GMV at risk, and nobody could say why.
-            I built an agent with Claude Code that turned a multi-day investigation into a matter of hours.
+            A client was losing millions of reais in carts that failed at checkout, and everyone assumed it was
+            stock. I built an agent with Claude Code that answered in hours instead of days, and the answer was
+            not stock.
           </p>
           <dl class="cs-meta">
             <div><dt>Role</dt><dd>Customer Success Manager</dd></div>
             <div><dt>When</dt><dd>April 2026</dd></div>
             <div><dt>Tools</dt><dd>Claude Code, live logistics APIs</dd></div>
-            <div><dt>Shared at</dt><dd>Claude Meetup Rio #5</dd></div>
+            <div><dt>Shared at</dt><dd>Claude Meetup Rio #5, June 2026</dd></div>
           </dl>
         </div>
       </header>
@@ -97,18 +98,19 @@
         <section aria-labelledby="s-situation">
           <h2 id="s-situation">The situation</h2>
           <p>
-            A consumer brand on the platform was losing sales at checkout. Carts were failing because items
-            showed as unavailable, and the volume was large enough to matter to the business.
+            After a conversation at VTEX Day, a consumer brand told me its cart-unavailability rate was high:
+            shoppers were reaching checkout and finding items they could not buy. The volume was large enough
+            to put millions of reais in GMV at risk in a single quarter.
           </p>
-          <p class="todo">❓ Como descrever o cliente sem nome? ("a consumer brand" é o padrão)</p>
         </section>
 
         <section aria-labelledby="s-problem">
           <h2 id="s-problem">The problem</h2>
           <p>
-            The answer was spread across two places nobody was looking at together: the cart data and the
-            logistics setup. Crossing them by hand meant going through tens of thousands of rows and checking
-            each case against live configuration, which we estimated at about two days.
+            The first hypothesis, theirs and mine, was stock. The data to check it existed but was
+            unstructured: an export of tens of thousands of failed items and a partial report with a few causes.
+            Testing each case by hand against the live logistics setup would have taken about two days, and
+            the answer depended on details of this account that no generic analysis would know.
           </p>
         </section>
 
@@ -116,45 +118,108 @@
           <h2 id="s-did">What I did</h2>
           <ol class="cs-steps">
             <li>
-              <h3>Sized the impact first</h3>
+              <h3>Wrote down what the agent couldn't know</h3>
               <p>
-                Before chasing the cause, I estimated how much GMV was at risk from the failed carts, so the
-                investigation had a business priority and not just a technical one. It came out in the
-                millions of reais.
+                An agent doesn't know the client by default. Before asking it anything, I wrote the account's
+                context into a file it loads every time: which sales channels count, how the logistics chain is
+                built, and the rules the analysis has to follow.
+              </p>
+              <figure class="cs-code" aria-label="Excerpt of the account context file, anonymized">
+                <figcaption>client-context.md · excerpt, anonymized</figcaption>
+<pre><code><span class="c-h">## Sales channels</span>
+Main store            include
+External channel      empty by design, filter out
+
+<span class="c-h">## Logistics architecture</span>
+Multi-warehouse, no sellers. Store = warehouse.
+Chain: warehouse → dock → shipping policy → freight table
+<span class="c-w">One broken link and the product disappears. No fallback.</span>
+
+<span class="c-h">## Analysis rules</span>
+GMV at risk = failed carts × real median ticket
+<span class="c-w">Never list price: it inflates the risk.</span>
+Only causes above a minimum volume enter the report.</code></pre>
+              </figure>
+            </li>
+            <li>
+              <h3>Let the agent do the cross-checking</h3>
+              <p>
+                With the context loaded, the agent queried the platform's logistics APIs in real time,
+                cross-referenced every failed item in the export with the API diagnosis, and ranked the root
+                causes by volume.
               </p>
             </li>
             <li>
-              <h3>Built an agent with Claude Code</h3>
-              <p>The agent read the cart dataset and checked each case against the live logistics APIs.</p>
-              <p class="todo">❓ Como o agente funcionava, passo a passo? (os slides devem responder)</p>
-            </li>
-            <li>
-              <h3>Found the root cause</h3>
-              <p class="todo">❓ Qual foi a causa, em termos neutros, sem atribuir erro à plataforma?</p>
-            </li>
-            <li>
-              <h3>Kept the decision human</h3>
+              <h3>Kept the judgment calls human</h3>
               <p>
-                The question I took to the talk was where the human fits in a workflow that already runs
-                most of the analysis on its own.
+                The parts that decide whether a number can be trusted stayed with me: excluding the channel that
+                is empty by design, measuring risk by the median ticket instead of list price, and setting the bar
+                for what counts as a real cause. Without them the same agent would have produced a fast, confident,
+                wrong answer.
               </p>
-              <p class="todo">❓ O que você decidiu que o agente não conseguia decidir?</p>
+            </li>
+            <li>
+              <h3>Turned the answer into something the client could act on</h3>
+              <p>
+                The output was three artifacts: an audit with the API evidence for each cause, an interactive
+                dashboard, and a playbook with actions ordered by priority and owner.
+              </p>
             </li>
           </ol>
+        </section>
+
+        <section aria-labelledby="s-flow">
+          <h2 id="s-flow">How the agent ran</h2>
+          <div class="cs-flow">
+            <div class="cs-flow-col">
+              <p class="cs-flow-label">In</p>
+              <ul>
+                <li>Export of failed items</li>
+                <li>Partial availability report</li>
+                <li>Account context file</li>
+              </ul>
+            </div>
+            <div class="cs-flow-col cs-flow-col--main">
+              <p class="cs-flow-label">Agent</p>
+              <ol>
+                <li>Routes to the account's workspace</li>
+                <li>Loads the account context</li>
+                <li>Queries logistics APIs live</li>
+                <li>Cross-checks every item</li>
+                <li>Ranks root causes by volume</li>
+              </ol>
+            </div>
+            <div class="cs-flow-col">
+              <p class="cs-flow-label">Out</p>
+              <ul>
+                <li>Audit with evidence</li>
+                <li>Interactive dashboard</li>
+                <li>Playbook by priority and owner</li>
+              </ul>
+            </div>
+          </div>
         </section>
 
         <section aria-labelledby="s-changed">
           <h2 id="s-changed">What changed</h2>
           <ul class="cs-outcomes">
-            <li>The investigation took hours instead of days.</li>
-            <li>The client and the team had a number for the problem, not just a symptom.</li>
+            <li>The vast majority of failures were logistics configuration, not stock: postal codes outside the freight tables, pickup-only or inactive shipping policies, docks without a freight table. The client was working on the wrong cause, and the analysis redirected the effort.</li>
+            <li>The investigation took hours instead of an estimated two days.</li>
+            <li>The client still uses the dashboard to monitor availability.</li>
           </ul>
-          <p class="todo">❓ Houve um desfecho no cliente que dê para contar em ordem de grandeza?</p>
         </section>
 
         <section aria-labelledby="s-diff">
           <h2 id="s-diff">What I'd do differently</h2>
-          <p class="todo">❓ Duas ou três frases honestas.</p>
+          <p>
+            Keeping the context current still depends on me typing it in. Next time I'd connect it to where
+            things already happen, like meeting notes and Slack, so the gap between "it happened" and "the
+            agent knows" closes on its own.
+          </p>
+          <p>
+            I also built it for one person, not a team. I'd test it with another engineer early, and check
+            whether the setup cost pays off for smaller portfolios before scaling it.
+          </p>
         </section>
 
       </div>
