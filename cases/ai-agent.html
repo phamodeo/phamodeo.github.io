@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finding why carts failed, with an AI agent | Pedro Amodeo</title>
+  <meta name="description" content="Case study: an AI agent built with Claude Code found why carts were failing in hours instead of about two days, and it was not stock.">
+  <meta name="author" content="Pedro Amodeo">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#282C34">
+  <link rel="canonical" href="https://phamodeo.com.br/cases/ai-agent.html">
+
+  <meta property="og:title" content="Finding why carts failed, with an AI agent">
+  <meta property="og:description" content="Case study by Pedro Amodeo: an AI agent turned a multi-day investigation into a matter of hours.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://phamodeo.com.br/cases/ai-agent.html">
+  <meta property="og:image" content="https://phamodeo.com.br/og-image.png?v=3">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://phamodeo.com.br/og-image.png?v=3">
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='12' fill='%23282C34'/><text x='50' y='50' text-anchor='middle' dominant-baseline='central' font-size='40' font-family='sans-serif' font-weight='700' letter-spacing='-1' fill='%23E489A0'>PA</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400&family=Geist+Mono:wght@400;500&family=Sora:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body class="case-page">
+
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/" class="brand" aria-label="Pedro Amodeo, home">
+        <span class="brand-mark">PA</span>
+        <span class="brand-name">Pedro Amodeo</span>
+      </a>
+
+      <nav class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="/#work" aria-current="true">Work</a></li>
+          <li><a href="/#experience">Experience</a></li>
+          <li><a href="/#skills">Skills</a></li>
+          <li><a href="/#education">Education</a></li>
+          <li><a href="/#contact" class="nav-cta">Contact</a></li>
+        </ul>
+      </nav>
+
+      <button type="button" class="nav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="nav-overlay" aria-hidden="true"></div>
+  <nav class="nav-drawer" id="nav-drawer" aria-label="Mobile">
+    <button type="button" class="nav-drawer-close" aria-label="Close menu">✕</button>
+    <ul class="nav-drawer-links">
+      <li><a href="/#work">Work</a></li>
+      <li><a href="/#experience">Experience</a></li>
+      <li><a href="/#skills">Skills</a></li>
+      <li><a href="/#education">Education</a></li>
+      <li><a href="/#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main id="main">
+    <article class="case-study">
+
+      <header class="cs-hero">
+        <div class="container cs-narrow">
+          <a href="/#work" class="cs-back">← Selected work</a>
+          <p class="eyebrow">Case study · AI · Incident diagnosis</p>
+          <h1 class="cs-title">Finding why carts failed, with an AI agent</h1>
+          <p class="cs-summary">
+            A client had millions of reais in GMV at risk from carts failing at checkout, and everyone assumed it
+            was stock. I built an agent with Claude Code that found the cause in hours instead of about two days,
+            and it was not stock.
+          </p>
+          <dl class="cs-meta">
+            <div><dt>Role</dt><dd>Customer Success Manager</dd></div>
+            <div><dt>When</dt><dd>April 2026</dd></div>
+            <div><dt>Tools</dt><dd>Claude Code, live logistics APIs</dd></div>
+            <div><dt>Shared at</dt><dd>Claude Meetup Rio #5, June 2026</dd></div>
+          </dl>
+        </div>
+      </header>
+
+      <figure class="cs-figure container cs-narrow">
+        <img src="/img/claude-meetup-rio.webp" width="1000" height="750"
+             alt="Pedro Amodeo on stage with a microphone, presenting this case at Claude Meetup Rio #5">
+        <figcaption>Presenting this case at Claude Meetup Rio #5, June 2026.</figcaption>
+      </figure>
+
+      <div class="container cs-narrow cs-body">
+
+        <section aria-labelledby="s-situation">
+          <h2 id="s-situation">The situation</h2>
+          <p>
+            During VTEX Day, I noticed that cart simulations for a consumer brand were failing and flagged it to
+            the client on the spot. Their cart-unavailability rate was high: shoppers were reaching checkout and
+            finding items they could not buy, at a volume large enough to put millions of reais in GMV at risk in
+            a single quarter.
+          </p>
+        </section>
+
+        <section aria-labelledby="s-problem">
+          <h2 id="s-problem">The problem</h2>
+          <p>
+            The first hypothesis, theirs and mine, was stock. The data to check it existed but was
+            unstructured: an export of tens of thousands of failed items and a partial report with a few causes.
+            Testing each case by hand against the live logistics setup would have taken about two days, and
+            the answer depended on details of this account that no generic analysis would know.
+          </p>
+        </section>
+
+        <section aria-labelledby="s-did">
+          <h2 id="s-did">What I did</h2>
+          <ol class="cs-steps">
+            <li>
+              <h3>Wrote down what the agent couldn't know</h3>
+              <p>
+                An agent doesn't know the client by default. Before asking it anything, I wrote the account's
+                context into a file it loads every time: which sales channels count, how the logistics chain is
+                built, and the rules the analysis has to follow.
+              </p>
+              <figure class="cs-code" aria-label="Excerpt of the account context file, anonymized">
+                <figcaption>client-context.md · excerpt, anonymized</figcaption>
+<pre><code><span class="c-h">## Sales channels</span>
+Main store        include
+External channel  empty, exclude
+
+<span class="c-h">## Logistics</span>
+Multi-warehouse. Store = warehouse.
+warehouse → dock → policy → freight
+<span class="c-w">One broken link: product disappears.</span>
+
+<span class="c-h">## Analysis rules</span>
+Risk = failed carts × median ticket
+<span class="c-w">Never list price: it inflates risk.</span>
+Report only causes above a set volume.</code></pre>
+              </figure>
+            </li>
+            <li>
+              <h3>Let the agent do the cross-checking</h3>
+              <p>
+                With the context loaded, the agent queried the platform's logistics APIs in real time,
+                cross-referenced every failed item in the export with the API diagnosis, and ranked the root
+                causes by volume.
+              </p>
+            </li>
+            <li>
+              <h3>Made the judgment calls myself, then wrote them down</h3>
+              <p>
+                Excluding the channel that is empty by design, measuring risk by the median ticket instead of list
+                price, and setting the bar for a real cause were my decisions; the context file makes the agent
+                apply them every time. Without them the same agent would have produced a fast, confident, wrong
+                answer.
+              </p>
+            </li>
+            <li>
+              <h3>Turned the answer into something the client could act on</h3>
+              <p>
+                The output was three artifacts: an audit with the API evidence for each cause, an interactive
+                dashboard, and a playbook with actions ordered by priority and owner.
+              </p>
+            </li>
+          </ol>
+        </section>
+
+        <section aria-labelledby="s-flow">
+          <h2 id="s-flow">How the agent ran</h2>
+          <div class="cs-flow">
+            <div class="cs-flow-col">
+              <p class="cs-flow-label">In</p>
+              <ul>
+                <li>Export of failed items</li>
+                <li>Partial availability report</li>
+                <li>Account context file</li>
+              </ul>
+            </div>
+            <div class="cs-flow-col cs-flow-col--main">
+              <p class="cs-flow-label">Agent</p>
+              <ol>
+                <li>Routes to the account's workspace</li>
+                <li>Loads the account context</li>
+                <li>Queries logistics APIs live</li>
+                <li>Cross-checks every item</li>
+                <li>Ranks root causes by volume</li>
+              </ol>
+            </div>
+            <div class="cs-flow-col">
+              <p class="cs-flow-label">Out</p>
+              <ul>
+                <li>Audit with evidence</li>
+                <li>Interactive dashboard</li>
+                <li>Playbook by priority and owner</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section aria-labelledby="s-changed">
+          <h2 id="s-changed">What changed</h2>
+          <ul class="cs-outcomes">
+            <li>The vast majority of failures were logistics configuration, not stock: postal codes outside the freight tables, pickup-only or inactive shipping policies, docks without a freight table. The client was working on the wrong cause, and the analysis redirected the effort.</li>
+            <li>The investigation took hours instead of an estimated two days.</li>
+            <li>I presented the findings to the client's CEO. The configuration was fixed the same day, and I followed up for a month to make sure it held.</li>
+            <li>The client still uses the dashboard to monitor availability.</li>
+          </ul>
+        </section>
+
+
+      </div>
+
+      <section class="container cs-narrow cs-contact-wrap" aria-labelledby="cs-contact-title">
+        <div class="cs-contact">
+        <h2 id="cs-contact-title">Working on a problem like this?</h2>
+        <p>I'm always up for a conversation about commerce, data or AI in customer work.</p>
+        <div class="cs-contact-links">
+          <a href="mailto:pedro.amodeo@outlook.com" class="btn btn-primary">pedro.amodeo@outlook.com</a>
+          <a href="https://www.linkedin.com/in/phamodeo/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">LinkedIn ↗</a>
+        </div>
+        </div>
+      </section>
+
+      <nav class="cs-next container cs-narrow" aria-label="More cases">
+        <a href="/#work" class="cs-next-back">← All selected work</a>
+        <a href="/cases/support-tickets.html" class="cs-next-link">
+          <span class="cs-next-label">Next case</span>
+          <span class="cs-next-title">From support tickets to a product map →</span>
+        </a>
+      </nav>
+
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <span>Pedro Amodeo · 2026</span>
+      <a href="#main">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script src="/site.js" defer></script>
+</body>
+</html>

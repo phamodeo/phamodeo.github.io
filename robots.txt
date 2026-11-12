@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://phamodeo.com.br/sitemap.xml

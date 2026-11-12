@@ -126,7 +126,7 @@
           <li>
             <span class="glance-value">I'm building with AI</span>
             <span class="glance-label">Where I'm going: AI doing the heavy diagnosis, so people spend their time on the decisions.</span>
-            <span class="glance-example">My Claude Code agent cut an incident investigation from days to hours. More in the first case below.</span>
+            <span class="glance-example">My Claude Code agent did in hours what would have taken about two days of manual checks. <a class="glance-link" href="cases/ai-agent.html">Read the case →</a></span>
           </li>
         </ul>
       </div>
@@ -138,26 +138,27 @@
         <header class="section-head">
           <p class="section-index">01</p>
           <h2 id="work-title">Selected work</h2>
-          <p class="section-lede">A few cases where the technical answer and the business answer turned out to be the same one.</p>
+          <p class="section-lede">Three problems, what I did about each, and what changed. Each one opens into a full case.</p>
         </header>
 
         <div class="cases">
-          <article class="case case--featured">
+          <article class="case case--featured case--linked">
             <img class="case-photo" src="img/claude-meetup-rio.webp" width="1000" height="750" loading="lazy"
                  alt="Pedro Amodeo on stage with a microphone, presenting at Claude Meetup Rio #5">
             <div class="case-body">
-            <p class="case-kicker">AI · Incident diagnosis</p>
+            <p class="case-kicker">AI · Incident diagnosis · Claude Meetup Rio #5</p>
             <h3>An AI agent to find why carts were failing</h3>
             <p>
               A cart-availability issue was putting millions of reais in GMV at risk, and no one could tell why
               carts were failing at checkout. I built an agent with Claude Code that cross-referenced a dataset
               of tens of thousands of rows with live logistics APIs to find the root cause.
             </p>
-            <p class="case-outcome">A multi-day investigation became a matter of hours. Presented at Claude Meetup Rio #5 (June 2026).</p>
+            <p class="case-outcome">What would have taken about two days of manual checks took hours, and the cause turned out not to be stock.</p>
+            <a class="case-link" href="cases/ai-agent.html">Read the case →</a>
             </div>
           </article>
 
-          <article class="case">
+          <article class="case case--linked">
             <p class="case-kicker">Product · Data</p>
             <h3>From support tickets to a product map</h3>
             <p>
@@ -165,17 +166,20 @@
               A handful of verticals concentrated most of the volume, and top-tier accounts opened far more
               marketplace tickets than average.
             </p>
-            <p class="case-outcome">I took it to Product leadership, who asked for it to go to Engineering.</p>
+            <p class="case-outcome">A Product leader called it the first conversation of its kind built on tickets and sent the report to Engineering for diagnosis.</p>
+            <a class="case-link" href="cases/support-tickets.html">Read the case →</a>
           </article>
 
-          <article class="case">
+          <article class="case case--linked">
             <p class="case-kicker">Launch · Fashion retail</p>
-            <h3>A global retailer's first digital waitlist launch</h3>
+            <h3>Owning a launch nobody owned</h3>
             <p>
-              Coordinated search, catalog, logistics, and engineering for a global fashion retailer's first
-              digital waitlist launch. Sales ran several times above the normal peak on day one.
+              No one on our side owned a global fashion retailer's first digital waitlist launch, so I did: looped
+              in Product and Engineering and stayed on site with the client through the launch. Sales ran several
+              times above the normal peak on day one.
             </p>
             <p class="case-outcome">I stayed on the account through the quarter, which closed with double-digit growth in revenue and average order value.</p>
+            <a class="case-link" href="cases/waitlist-launch.html">Read the case →</a>
           </article>
 
         </div>
@@ -212,7 +216,7 @@
                   Since October, working across the whole team's accounts and bridging to Product.
                 </p>
                 <ul class="bullets">
-                  <li>Led three of the cases above: the ticket-to-product map for Product leadership, the AI agent for a cart-availability incident, and a global fashion retailer's first digital waitlist launch.</li>
+                  <li>Three of these projects are written up as full cases: <a href="cases/ai-agent.html">the AI agent for a cart-availability incident</a>, <a href="cases/support-tickets.html">the support-ticket product map</a> and <a href="cases/waitlist-launch.html">a global retailer's launch</a>.</li>
                 <li>Reverse-engineered the platform's seller-allocation logic for a footwear retailer. <strong>The rule I derived held across simulations with no counterexample</strong>, where the documented rule diverged in a meaningful share of decisions.</li>
                 <li>Resolved an incident with engineering days before a Tier 1 client's Easter peak, <strong>securing full renewal</strong>.</li>
                 <li>Owned C-level communication through a Tier 2 client's bot attack, <strong>fast-tracking it into a bot-protection beta</strong>.</li>
@@ -418,46 +422,6 @@
     </div>
   </footer>
 
-  <script>
-    (function () {
-      // Mobile drawer: real buttons, Escape to close, focus handled.
-      var body = document.body;
-      var openBtn = document.querySelector('.nav-hamburger');
-      var closeBtn = document.querySelector('.nav-drawer-close');
-      var drawer = document.getElementById('nav-drawer');
-      function setOpen(open) {
-        body.classList.toggle('nav-open', open);
-        openBtn.setAttribute('aria-expanded', String(open));
-        if (open) setTimeout(function () { drawer.querySelector('a').focus(); }, 60);
-        else openBtn.focus();
-      }
-      openBtn.addEventListener('click', function () { setOpen(true); });
-      closeBtn.addEventListener('click', function () { setOpen(false); });
-      document.querySelector('.nav-overlay').addEventListener('click', function () { setOpen(false); });
-      drawer.querySelectorAll('a').forEach(function (a) {
-        a.addEventListener('click', function () {
-          body.classList.remove('nav-open');
-          openBtn.setAttribute('aria-expanded', 'false');
-        });
-      });
-      document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape' && body.classList.contains('nav-open')) setOpen(false);
-      });
-
-      // Highlight the section in view in the desktop nav.
-      if (!('IntersectionObserver' in window)) return;
-      var links = document.querySelectorAll('.site-nav a');
-      var observer = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (!entry.isIntersecting) return;
-          links.forEach(function (link) {
-            if (link.getAttribute('href') === '#' + entry.target.id) link.setAttribute('aria-current', 'true');
-            else link.removeAttribute('aria-current');
-          });
-        });
-      }, { rootMargin: '-45% 0px -50% 0px' });
-      document.querySelectorAll('main section[id]').forEach(function (sec) { observer.observe(sec); });
-    })();
-  </script>
+  <script src="site.js" defer></script>
 </body>
 </html>
