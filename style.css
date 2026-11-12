@@ -269,6 +269,24 @@ section + section { border-top: 1px solid rgba(150, 158, 170, 0.1); }
 /* === 5. HERO === */
 .hero { padding: clamp(4rem, 10vh, 7rem) 0 var(--space-6); }
 
+.hero-main {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  gap: var(--space-5);
+  align-items: center;
+}
+
+.hero-photo {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 20px;
+  border: 1px solid var(--border-strong);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+  background: var(--bg-secondary);
+}
+
 .eyebrow {
   font-family: var(--mono);
   font-size: var(--fs-xs);
@@ -399,6 +417,34 @@ section + section { border-top: 1px solid rgba(150, 158, 170, 0.1); }
 }
 
 .case h3 { font-size: 1.2rem; }
+
+/* Featured case: full width, photo beside the text */
+.case--featured {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr);
+  padding: 0;
+  gap: 0;
+}
+
+.case-photo {
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+  object-fit: cover;
+  object-position: 45% 30%;
+  display: block;
+  background: var(--bg-high);
+}
+
+.case-body {
+  padding: var(--space-4) var(--space-4) var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.case--featured::before { z-index: 1; }
 
 .case p:not(.case-kicker):not(.case-outcome) {
   color: var(--text-secondary);
@@ -586,12 +632,20 @@ section + section { border-top: 1px solid rgba(150, 158, 170, 0.1); }
     to   { opacity: 1; transform: translateY(0); }
   }
 
-  .hero .container > * { animation: fade-up 0.6s ease both; }
-  .hero .container > *:nth-child(2) { animation-delay: 0.08s; }
-  .hero .container > *:nth-child(3) { animation-delay: 0.16s; }
-  .hero .container > *:nth-child(4) { animation-delay: 0.24s; }
-  .hero .container > *:nth-child(5) { animation-delay: 0.32s; }
-  .hero .container > *:nth-child(6) { animation-delay: 0.4s; }
+  /* Hero entrance moves content only; it never hides it, so the page
+     still reads if animations are paused or never start. */
+  @keyframes rise {
+    from { transform: translateY(14px); }
+    to   { transform: translateY(0); }
+  }
+
+  .hero-text > *, .hero-photo, .glance { animation: rise 0.6s ease both; }
+  .hero-text > *:nth-child(2) { animation-delay: 0.08s; }
+  .hero-text > *:nth-child(3) { animation-delay: 0.16s; }
+  .hero-text > *:nth-child(4) { animation-delay: 0.24s; }
+  .hero-text > *:nth-child(5) { animation-delay: 0.32s; }
+  .hero-photo { animation-delay: 0.2s; }
+  .glance { animation-delay: 0.4s; }
 
   .btn:hover { transform: translateY(-2px); }
 
@@ -625,6 +679,13 @@ section + section { border-top: 1px solid rgba(150, 158, 170, 0.1); }
 
   .cases, .skills-grid, .edu-grid { grid-template-columns: 1fr; }
 
+  .hero-main { grid-template-columns: 1fr; gap: var(--space-3); }
+  .hero-photo { order: -1; width: 112px; border-radius: 16px; box-shadow: none; }
+
+  .case--featured { grid-template-columns: 1fr; }
+  .case-photo { min-height: 0; height: auto; aspect-ratio: 4 / 3; }
+  .case-body { padding: var(--space-3); }
+
   .employer { grid-template-columns: 1fr; gap: var(--space-2); }
 
   .role-head { flex-direction: column; gap: 0.15rem; }
@@ -646,7 +707,7 @@ section + section { border-top: 1px solid rgba(150, 158, 170, 0.1); }
     --border-strong: #ccc;
     --accent: #8a3050;
   }
-  .site-header, .nav-drawer, .nav-overlay, .skip-link, .hero-ctas, .contact-links, .footer { display: none; }
+  .site-header, .nav-drawer, .nav-overlay, .skip-link, .hero-ctas, .contact-links, .footer, .case-photo { display: none; }
   section { padding: 1.5rem 0; break-inside: avoid-page; }
   .case, .card { break-inside: avoid; }
 }
