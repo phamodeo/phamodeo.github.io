@@ -128,18 +128,7 @@ h1, h2, h3, h4 {
   font-size: 1rem;
 }
 
-.brand-mark {
-  display: grid;
-  place-items: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 8px;
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-strong);
-  color: var(--accent);
-  font-size: 0.8rem;
-  letter-spacing: -0.02em;
-}
+.brand-dot { color: var(--accent); }
 
 .site-nav ul {
   display: flex;
@@ -718,9 +707,7 @@ section + section { border-top: 1px solid rgba(150, 158, 170, 0.1); }
 
 @media (max-width: 480px) {
   .contact-links .btn { flex: 1 1 100%; }
-  /* Primary CTA full width, LinkedIn and Email share the next row */
-  .hero-ctas .btn-primary { flex: 1 1 100%; }
-  .hero-ctas .btn-secondary, .hero-ctas .btn-ghost { flex: 1 1 calc(50% - 0.375rem); }
+  .hero-ctas .btn { flex: 1 1 100%; }
   .footer .container { flex-direction: column; align-items: center; }
 }
 
