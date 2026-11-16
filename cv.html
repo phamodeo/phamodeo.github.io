@@ -14,7 +14,9 @@
   <meta property="og:type" content="profile">
   <meta property="og:url" content="https://phamodeo.com.br/cv.html">
   <meta property="og:image" content="https://phamodeo.com.br/og-image.png?v=3">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='12' fill='%23282C34'/><text x='50' y='50' text-anchor='middle' dominant-baseline='central' font-size='40' font-family='sans-serif' font-weight='700' letter-spacing='-1' fill='%23E489A0'>PA</text></svg>">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <style>
     /* Layout mirrors the pedro-classic template (Pedro_Amodeo_Resume.docx):
        US Letter, 0.75in top/bottom, 0.8in sides, Arial 10pt, name 22pt bold,
@@ -146,7 +148,7 @@
       <a href="/" class="bar-back">← phamodeo.com.br</a>
       <span class="bar-note">Two pages, US Letter. Same data as the site.</span>
     </div>
-    <button type="button" class="bar-print" id="print">Save as PDF</button>
+    <button type="button" class="bar-print" id="print">Export as PDF</button>
   </div>
 
   <main class="sheet" id="main">
@@ -256,6 +258,11 @@
 
   <script>
     document.getElementById('print').addEventListener('click', function () { window.print(); });
+    // Reached through the site's "Export as PDF" button: open the print dialog once fonts are in.
+    if (/[?&]export=1/.test(location.search)) {
+      history.replaceState(null, '', location.pathname);
+      window.addEventListener('load', function () { window.print(); });
+    }
   </script>
 </body>
 </html>
