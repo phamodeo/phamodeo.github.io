@@ -8,11 +8,11 @@
   <meta name="author" content="Pedro Amodeo">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#282C34">
-  <link rel="canonical" href="https://phamodeo.com.br/resume.html">
+  <link rel="canonical" href="https://phamodeo.com.br/resume">
   <meta property="og:title" content="Pedro Amodeo - Resume">
   <meta property="og:description" content="Customer Success Manager at VTEX. Two-page resume, same data as phamodeo.com.br.">
   <meta property="og:type" content="profile">
-  <meta property="og:url" content="https://phamodeo.com.br/resume.html">
+  <meta property="og:url" content="https://phamodeo.com.br/resume">
   <meta property="og:image" content="https://phamodeo.com.br/og-image.png?v=3">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
@@ -130,6 +130,7 @@
     .entry .dated > :first-child { font-weight: 700; }
     .skill { margin-top: 1pt; }
     .skill b { font-weight: 700; }
+    .updated { margin-top: 14pt; font-size: 8pt; color: var(--gray); }
 
     @media print {
       @page { size: letter; margin: 0.75in 0.8in; }
@@ -148,7 +149,7 @@
       <a href="/" class="bar-back">← phamodeo.com.br</a>
       <span class="bar-note">Resume</span>
     </div>
-    <button type="button" class="bar-print" id="print">Export as PDF</button>
+    <a class="bar-print" href="/resume.pdf" download="Pedro Amodeo - Resume.pdf">Download PDF</a>
   </div>
 
   <main class="sheet" id="main">
@@ -254,15 +255,9 @@
     <p class="skill"><b>Diagnostic &amp; Monitoring:</b> OpenSearch, Grafana, SQL, Looker Studio, Google Analytics, fraud prevention</p>
     <p class="skill"><b>Scripting &amp; Reporting:</b> Claude Code, AI agents for account diagnostics, Google Apps Script, Postman, Git</p>
 
+    <p class="updated">Updated <span id="updated">Nov 2026</span> · phamodeo.com.br/resume</p>
+
   </main>
 
-  <script>
-    document.getElementById('print').addEventListener('click', function () { window.print(); });
-    // Reached through the site's "Export as PDF" button: open the print dialog once fonts are in.
-    if (/[?&]export=1/.test(location.search)) {
-      history.replaceState(null, '', location.pathname);
-      window.addEventListener('load', function () { window.print(); });
-    }
-  </script>
 </body>
 </html>
