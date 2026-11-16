@@ -400,6 +400,8 @@ section + section { border-top: 1px solid rgba(150, 158, 170, 0.1); }
 .btn-ghost { border-color: var(--border); color: var(--text-primary); }
 .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
 
+.print-only { display: none; }
+
 /* === 7. SELECTED WORK === */
 .cases {
   display: grid;
@@ -733,9 +735,31 @@ section + section { border-top: 1px solid rgba(150, 158, 170, 0.1); }
     --border-strong: #ccc;
     --accent: #8a3050;
   }
-  .site-header, .nav-drawer, .nav-overlay, .skip-link, .hero-ctas, .contact-links, .footer, .case-photo { display: none; }
-  section { padding: 1.5rem 0; break-inside: avoid-page; }
-  .case, .card { break-inside: avoid; }
+  @page { margin: 1.6cm; }
+  html { scroll-behavior: auto; font-size: 15px; }
+  body { background: #fff; }
+  a { color: inherit; }
+
+  /* Navigation, buttons and the contact block go; the CV carries its own contact line. */
+  .site-header, .nav-drawer, .nav-overlay, .skip-link, .hero-ctas, .footer,
+  .section-index, .glance-example, .case-photo, .contact,
+  .cs-figure, .cs-contact-wrap, .cs-more { display: none; }
+  .print-only { display: block; }
+  .hero-contact { font-family: var(--mono); font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 1rem; }
+
+  .hero { padding: 0 0 1.25rem; }
+  .hero-main { grid-template-columns: minmax(0, 1fr) 90px; gap: 1.5rem; }
+  .hero-photo { width: 90px; border-radius: 10px; box-shadow: none; }
+  .glance { margin-top: 1.25rem; }
+
+  section { padding: 1.1rem 0; }
+  .case, .card, .employer, .role, .glance li { break-inside: avoid; }
+  .case--featured, .employer { grid-template-columns: minmax(0, 1fr); gap: 0.5rem; }
+  .case-body { padding: 0; }
+  /* Case links print as the URL a reader can type. */
+  .case-link::after { content: " phamodeo.com.br/" attr(href); position: static; inset: auto; font-weight: 400; color: var(--text-secondary); }
+  .cs-back::after { content: " · phamodeo.com.br"; }
+  .hero-text > *, .hero-photo, .glance, .section-head, .case, .employer, .skill-group { animation: none; }
 }
 
 /* === 16. CASE STUDY PAGES === */
@@ -875,37 +899,34 @@ section + section { border-top: 1px solid rgba(150, 158, 170, 0.1); }
 .cs-tl-when { font-family: var(--mono); font-size: var(--fs-xs); color: var(--accent); }
 .cs-tl-what { font-size: var(--fs-sm); color: var(--text-primary); line-height: 1.45; }
 
-.cs-next {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: var(--space-3);
-  flex-wrap: wrap;
+.cs-more {
   padding-top: var(--space-4);
   padding-bottom: var(--space-6);
   border-top: 1px solid var(--border);
 }
-.cs-next-back {
+.cs-more-back {
   display: inline-flex;
   align-items: center;
   min-height: 44px;
+  margin-bottom: var(--space-2);
   font-size: var(--fs-sm);
   color: var(--text-secondary);
 }
-.cs-next-back:hover { color: var(--accent); }
-.cs-next-link {
+.cs-more-back:hover { color: var(--accent); }
+.cs-more-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-2); }
+.cs-more-card {
   display: flex;
   flex-direction: column;
-  gap: 0.2rem;
-  text-align: right;
+  gap: 0.3rem;
   padding: var(--space-2) var(--space-3);
   border: 1px solid var(--border-strong);
   border-radius: var(--radius);
   transition: border-color 0.15s ease;
 }
-.cs-next-link:hover { border-color: var(--accent); }
-.cs-next-label { font-family: var(--mono); font-size: var(--fs-xs); color: var(--accent); }
-.cs-next-title { font-family: var(--headline); font-weight: 600; }
+.cs-more-card:hover { border-color: var(--accent); }
+.cs-more-card:hover .cs-more-title { color: var(--accent); }
+.cs-more-label { font-family: var(--mono); font-size: var(--fs-xs); color: var(--accent); }
+.cs-more-title { font-family: var(--headline); font-weight: 600; line-height: 1.3; transition: color 0.15s ease; }
 
 /* Context file excerpt */
 .cs-code {
@@ -1065,6 +1086,5 @@ section + section { border-top: 1px solid rgba(150, 158, 170, 0.1); }
   .cs-timeline::before { left: 5px; right: auto; top: 0; bottom: 0; width: 1px; height: auto; }
   .cs-timeline li { padding-top: 0; }
   .cs-timeline li::before { left: calc(-1 * var(--space-3)); top: 0.2rem; }
-  .cs-next { flex-direction: column-reverse; align-items: stretch; }
-  .cs-next-link { text-align: left; width: 100%; }
+  .cs-more-grid { grid-template-columns: minmax(0, 1fr); }
 }

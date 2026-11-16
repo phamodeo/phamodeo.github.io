@@ -43,6 +43,7 @@
           <li><a href="/#experience">Experience</a></li>
           <li><a href="/#skills">Skills</a></li>
           <li><a href="/#education">Education</a></li>
+          <li><a href="/?print=1" class="js-print">CV</a></li>
           <li><a href="/#contact" class="nav-cta">Contact</a></li>
         </ul>
       </nav>
@@ -61,6 +62,7 @@
       <li><a href="/#experience">Experience</a></li>
       <li><a href="/#skills">Skills</a></li>
       <li><a href="/#education">Education</a></li>
+      <li><a href="/?print=1" class="js-print">CV (PDF)</a></li>
       <li><a href="/#contact">Contact</a></li>
     </ul>
   </nav>
@@ -68,7 +70,7 @@
   <main id="main">
     <article class="case-study">
 
-      <header class="cs-hero">
+      <header class="cs-hero" id="top">
         <div class="container cs-narrow">
           <a href="/#work" class="cs-back">← Selected work</a>
           <p class="eyebrow">Case study · Product · Data</p>
@@ -174,12 +176,18 @@
         </div>
       </section>
 
-      <nav class="cs-next container cs-narrow" aria-label="More cases">
-        <a href="/#work" class="cs-next-back">← All selected work</a>
-        <a href="/cases/waitlist-launch.html" class="cs-next-link">
-          <span class="cs-next-label">Next case</span>
-          <span class="cs-next-title">A global retailer's first digital waitlist launch →</span>
-        </a>
+      <nav class="cs-more container cs-narrow" aria-label="More cases">
+        <a href="/#work" class="cs-more-back">← All selected work</a>
+        <div class="cs-more-grid">
+          <a href="/cases/ai-agent.html" class="cs-more-card">
+            <span class="cs-more-label">AI · Incident diagnosis</span>
+            <span class="cs-more-title">Finding why carts failed, with an AI agent →</span>
+          </a>
+          <a href="/cases/waitlist-launch.html" class="cs-more-card">
+            <span class="cs-more-label">Launch · Fashion retail</span>
+            <span class="cs-more-title">A global retailer's first digital waitlist launch →</span>
+          </a>
+        </div>
       </nav>
 
     </article>
@@ -188,7 +196,7 @@
   <footer class="footer">
     <div class="container">
       <span>Pedro Amodeo · 2026</span>
-      <a href="#main">Back to top ↑</a>
+      <a href="#top">Back to top ↑</a>
     </div>
   </footer>
 
