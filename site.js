@@ -25,21 +25,8 @@
     if (e.key === 'Escape' && body.classList.contains('nav-open')) setOpen(false);
   });
 
-  // CV: the home page printed is the CV. On the home page the CV links print in
-  // place; from other pages they land on /?print=1, which prints once loaded.
-  var isHome = !body.classList.contains('case-page');
-  document.querySelectorAll('.js-print').forEach(function (el) {
-    el.addEventListener('click', function (e) {
-      if (isHome) { e.preventDefault(); window.print(); }
-    });
-  });
-  if (isHome && /[?&]print=1/.test(location.search)) {
-    history.replaceState(null, '', location.pathname);
-    window.addEventListener('load', function () { window.print(); });
-  }
-
   // Highlight the section in view in the desktop nav (home only).
-  if (!('IntersectionObserver' in window) || !isHome) return;
+  if (!('IntersectionObserver' in window) || body.classList.contains('case-page')) return;
   var links = document.querySelectorAll('.site-nav a');
   var observer = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pedro Amodeo - Resume</title>
+  <meta name="description" content="Resume of Pedro Amodeo, Customer Success Manager at VTEX. Same data as the site, laid out as a two-page CV.">
+  <meta name="author" content="Pedro Amodeo">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#282C34">
+  <link rel="canonical" href="https://phamodeo.com.br/cv.html">
+  <meta property="og:title" content="Pedro Amodeo - Resume">
+  <meta property="og:description" content="Customer Success Manager at VTEX. Two-page resume, same data as phamodeo.com.br.">
+  <meta property="og:type" content="profile">
+  <meta property="og:url" content="https://phamodeo.com.br/cv.html">
+  <meta property="og:image" content="https://phamodeo.com.br/og-image.png?v=3">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='12' fill='%23282C34'/><text x='50' y='50' text-anchor='middle' dominant-baseline='central' font-size='40' font-family='sans-serif' font-weight='700' letter-spacing='-1' fill='%23E489A0'>PA</text></svg>">
+  <style>
+    /* Layout mirrors the pedro-classic template (Pedro_Amodeo_Resume.docx):
+       US Letter, 0.75in top/bottom, 0.8in sides, Arial 10pt, name 22pt bold,
+       section headers 11pt bold caps with a 0.75pt rule, dates on the right,
+       everything left-aligned. Dates use an ASCII hyphen for ATS parsers. */
+    :root {
+      --paper: #fff;
+      --ink: #000;
+      --gray: #595959;
+      --link: #0563C1;
+      --rule: #000;
+      --bg: #282C34;
+      --bar: #32363f;
+      --accent: #E489A0;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      background: var(--bg);
+      font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+      font-size: 10pt;
+      line-height: 12.07pt;
+      color: var(--ink);
+      text-align: left;
+      hyphens: none;
+      -webkit-hyphens: none;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    /* Screen-only toolbar */
+    .bar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.7rem 1rem;
+      background: var(--bar);
+      color: #fff;
+      font-size: 0.9rem;
+    }
+    .bar-left { display: flex; align-items: center; gap: 1rem; }
+    .bar a, .bar button { color: #fff; font: inherit; }
+    .bar-back { opacity: 0.8; }
+    .bar-back:hover { opacity: 1; color: var(--accent); }
+    .bar-note { opacity: 0.6; font-size: 0.8rem; }
+    .bar-print {
+      cursor: pointer;
+      padding: 0.5rem 1rem;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      background: var(--accent);
+      color: var(--bg);
+      font-weight: 700;
+    }
+    .bar-print:hover { filter: brightness(1.08); }
+    .bar-print:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+
+    /* The sheet */
+    .sheet {
+      width: 8.5in;
+      max-width: 100%;
+      margin: 1.5rem auto 3rem;
+      padding: 0.75in 0.8in;
+      background: var(--paper);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+    }
+    @media (max-width: 8.5in) {
+      .sheet { margin: 0; padding: 0.6in 0.5in; box-shadow: none; }
+    }
+
+    /* Header */
+    .name { font-size: 22pt; line-height: 25pt; font-weight: 700; }
+    .subtitle { margin-top: 1pt; font-style: italic; }
+    .contact { margin-top: 1pt; }
+    .contact a { color: var(--link); text-decoration: underline; }
+
+    /* Sections: 10pt before, 11pt bold caps, 0.75pt rule 3pt below, 5pt after */
+    h2 {
+      margin-top: 10pt;
+      padding-bottom: 3pt;
+      border-bottom: 0.75pt solid var(--rule);
+      font-size: 11pt;
+      line-height: 13pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 5pt;
+      break-after: avoid;
+    }
+    .summary { line-height: 12.64pt; }
+
+    /* Dated lines: text left, date right, never wrapping the date */
+    .dated { display: flex; justify-content: space-between; gap: 1rem; align-items: baseline; }
+    .dated > :last-child { flex-shrink: 0; white-space: nowrap; }
+
+    .company { margin-top: 7pt; break-inside: avoid; }
+    .company .dated { font-weight: 700; }
+    .company-desc { font-style: italic; color: var(--gray); }
+    .context { margin-top: 1pt; }
+    .role { margin-top: 5pt; break-inside: avoid; }
+    .role .dated > :first-child { font-weight: 700; }
+    .role .dated > :last-child { font-style: italic; }
+    ul.bullets { margin-top: 1.5pt; padding-left: 0.25in; list-style: none; }
+    ul.bullets li { position: relative; margin-top: 2pt; }
+    ul.bullets li::before { content: "\2022"; position: absolute; left: -0.125in; }
+
+    .entry { margin-top: 3pt; break-inside: avoid; }
+    .entry .dated > :first-child { font-weight: 700; }
+    .skill { margin-top: 1pt; }
+    .skill b { font-weight: 700; }
+
+    @media print {
+      @page { size: letter; margin: 0.75in 0.8in; }
+      body { background: #fff; }
+      .bar { display: none; }
+      .sheet { width: auto; max-width: none; margin: 0; padding: 0; box-shadow: none; }
+      a { color: inherit; }
+      .contact a { color: var(--link); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bar" role="toolbar" aria-label="Resume actions">
+    <div class="bar-left">
+      <a href="/" class="bar-back">← phamodeo.com.br</a>
+      <span class="bar-note">Two pages, US Letter. Same data as the site.</span>
+    </div>
+    <button type="button" class="bar-print" id="print">Save as PDF</button>
+  </div>
+
+  <main class="sheet" id="main">
+
+    <header>
+      <h1 class="name">Pedro Amodeo</h1>
+      <p class="subtitle">Customer Success Manager | eCommerce &amp; SaaS</p>
+      <p class="contact">pedro.amodeo@outlook.com | São Paulo, Brazil | <a href="https://www.linkedin.com/in/phamodeo/">linkedin.com/in/phamodeo</a> | <a href="https://phamodeo.com.br/">phamodeo.com.br</a></p>
+    </header>
+
+    <h2>Summary</h2>
+    <p class="summary">
+      Customer Success Manager at VTEX, a global composable commerce platform, with full account ownership across renewals, expansion, retention and incident resolution. Through H1 2026, owned a portfolio of dozens of enterprise accounts with over $100M in annual GMV, several taken over mid-cycle, and served as technical counterpart for Tier 0 and Tier 1 accounts. Works in the space between platform diagnosis, engineering escalation and the C-level conversation, on the same account, and builds AI agents to do the heavy diagnosis so people spend their time on decisions.
+    </p>
+
+    <h2>Professional Experience</h2>
+
+    <section class="company">
+      <div class="dated"><span>VTEX</span><span>Jul 2025 - Present</span></div>
+      <p class="company-desc">Global composable commerce platform. São Paulo.</p>
+      <p class="context">Selected for the Digital Commerce Specialist Program, VTEX's technical commercial rotational program.</p>
+
+      <div class="role">
+        <div class="dated"><span>Customer Success Manager</span><span>Mar 2026 - Present</span></div>
+        <ul class="bullets">
+          <li>Built an agent with Claude Code to diagnose a cart-availability incident putting millions of reais in GMV at risk. It cross-referenced a dataset of tens of thousands of rows with live logistics APIs and found the root cause (logistics configuration, not stock) in hours instead of about two days; the fix held through a month of follow-up. Presented at Claude Meetup Rio #5 (Jun 2026).</li>
+          <li>Owned a global fashion retailer's first digital waitlist launch end to end, looping in Product and Engineering and staying on site with the client. Sales ran several times above the normal peak on day one, with the launch-day issue fixed on the spot.</li>
+          <li>Turned thousands of support tickets from the largest accounts into a product-vertical map. A handful of verticals concentrated most of the volume; Product took the ranked view to Engineering to diagnose the top issues.</li>
+          <li>Reverse-engineered the platform's seller-allocation logic for a footwear retailer. The derived rule held across simulations with no counterexample, where the documented rule diverged in a meaningful share of decisions.</li>
+          <li>Resolved an incident with Engineering days before a Tier 1 client's Easter peak, securing full renewal.</li>
+          <li>Retained a large pharmacy retailer that had formally signaled migration and already involved internal IT, securing full renewal.</li>
+        </ul>
+      </div>
+
+      <div class="role">
+        <div class="dated"><span>Field Software Engineer</span><span>Jul 2025 - Feb 2026</span></div>
+        <ul class="bullets">
+          <li>Technical escalation owner for enterprise accounts across Catalog, Pricing, Checkout and OMS.</li>
+          <li>Migrated the storefronts of a supermarket client to composable architecture in under two months with zero downtime, and structured the roadmap for the remaining storefronts.</li>
+          <li>Monitored marketplace integrations (Amazon, Mercado Livre, TikTok, Shopee) for Tier 1 partners, resolving catalog and order sync failures via OpenSearch and Grafana.</li>
+          <li>Sustained a high CSAT across client-rated support tickets, with a single negative rating over the rotation.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="company">
+      <div class="dated"><span>Voxus Mídia</span><span>Feb 2022 - Jun 2025</span></div>
+      <p class="company-desc">Programmatic and retail media AdTech. São Paulo.</p>
+
+      <div class="role">
+        <div class="dated"><span>Operations Analyst, Revenue Operations &amp; Growth</span><span>Sep 2024 - Jun 2025</span></div>
+        <ul class="bullets">
+          <li>Identified an untapped mobile acquisition segment for a desktop-only product. Designed the segmentation strategy and A/B test hypotheses with Engineering, adding GMV from a previously non-converting segment.</li>
+          <li>Restructured business logic and pricing workflows for client onboarding, cutting deal closure time by about half and letting key accounts scale to full operational capacity.</li>
+        </ul>
+      </div>
+
+      <div class="role">
+        <div class="dated"><span>Junior Operations Analyst</span><span>Feb 2023 - Sep 2024</span></div>
+        <ul class="bullets">
+          <li>Redesigned performance reporting and built SQL dashboards for Programmatic and Retail Media campaigns, halving processing time.</li>
+        </ul>
+      </div>
+
+      <div class="role">
+        <div class="dated"><span>Operations Assistant</span><span>Feb 2022 - Feb 2023</span></div>
+        <ul class="bullets">
+          <li>Standardized programmatic campaign workflows and built analytical reports for account and operations teams across dozens of active clients.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="company">
+      <div class="dated"><span>Pluxee (Sodexo)</span><span>Jan 2021 - Feb 2022</span></div>
+      <p class="company-desc">Global employee benefits platform. Barueri.</p>
+
+      <div class="role">
+        <div class="dated"><span>Partner Operations Intern</span><span>Jan 2021 - Feb 2022</span></div>
+        <ul class="bullets">
+          <li>Managed technical integrations with payment and marketplace partners (Cielo, Rede, Stone, iFood, Magalu), troubleshooting issues affecting merchant transactions.</li>
+        </ul>
+      </div>
+    </section>
+
+    <h2>Education</h2>
+    <div class="entry">
+      <div class="dated"><span>Universidade Presbiteriana Mackenzie</span><span>Jan 2019 - Dec 2022</span></div>
+      <p>Bachelor's degree in Economics</p>
+    </div>
+
+    <h2>Certifications</h2>
+    <div class="entry">
+      <div class="dated"><span>Commerce Management Certification, Level 2</span><span>Mar 2026</span></div>
+      <p>VTEX Academy | EICOM Institute</p>
+    </div>
+
+    <h2>Languages</h2>
+    <p>Portuguese (native), English (bilingual), Spanish (conversational), Italian (conversational)</p>
+
+    <h2>Skills</h2>
+    <p class="skill"><b>Customer Success &amp; Account Management:</b> Account ownership, renewal and expansion, churn mitigation, executive stakeholder management, QBRs, account planning, engineering escalation, customer onboarding and enablement</p>
+    <p class="skill"><b>Technical Execution:</b> VTEX IO, FastStore (composable and headless), Intelligent Search, OMS and logistics, marketplace integrations, solution design, REST APIs, GraphQL</p>
+    <p class="skill"><b>Diagnostic &amp; Monitoring:</b> OpenSearch, Grafana, SQL, Looker Studio, Google Analytics, fraud prevention</p>
+    <p class="skill"><b>Scripting &amp; Reporting:</b> Claude Code, AI agents for account diagnostics, Google Apps Script, Postman, Git</p>
+
+  </main>
+
+  <script>
+    document.getElementById('print').addEventListener('click', function () { window.print(); });
+  </script>
+</body>
+</html>
